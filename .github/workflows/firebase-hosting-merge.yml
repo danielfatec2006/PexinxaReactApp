@@ -13,8 +13,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Install Dependencies
         run: |
-          cd PexinxaReactApp
-          cd pexinxa-front
+          cd PexinxaReactApp/pexinxa-front
           npm install
       - run: |
           cd PexinxaReactApp
