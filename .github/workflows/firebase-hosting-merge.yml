@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: |
-          cd $GITHUB_WORKSPACE/PexinxaReactApp/pexinxa-front/
+          cd https://github.com/Icrim-s/PexinxaReactApp/tree/organization/prod
           npm ci && npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
