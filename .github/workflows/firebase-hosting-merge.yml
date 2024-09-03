@@ -11,10 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Install Dependencies
-        run: |
-          cd PexinxaReactApp/pexinxa-front/
-          npm install
       - run: |
           cd PexinxaReactApp/pexinxa-front/
           npm ci && npm run build
