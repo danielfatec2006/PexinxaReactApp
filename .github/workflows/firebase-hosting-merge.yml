@@ -13,10 +13,10 @@ jobs:
       - uses: actions/checkout@v4
       - name: Install Dependencies
         run: |
-          cd C:/Users/icaro/OneDrive/Documents/PexinxaReactApp/pexinxa-front
+          cd PexinxaReactApp/pexinxa-front/
           npm install
       - run: |
-          cd C:/Users/icaro/OneDrive/Documents/PexinxaReactApp/pexinxa-front
+          cd PexinxaReactApp/pexinxa-front/
           npm ci && npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
