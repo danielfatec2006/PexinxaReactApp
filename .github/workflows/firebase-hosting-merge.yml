@@ -15,7 +15,6 @@ jobs:
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
-          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_PEXINXA_DATABASE }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_NOMADELIDE_MI }}
           channelId: live
-          projectId: pexinxa-database 
-
+          projectId: nomadelide-mi
