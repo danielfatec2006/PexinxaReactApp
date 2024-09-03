@@ -12,11 +12,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Install Dependencies
-        run: npm install
-      - run: npm ci && npm run build
+        run: |
+          cd PexinxaReactApp
+          cd pexinxa-front
+          npm install
+      - run: |
+          cd PexinxaReactApp
+          npm ci && npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_PEXINXA_DATABASE }}
           channelId: live
-          projectId: pexinxa-database
+          projectId: pexinxa-database 
+
