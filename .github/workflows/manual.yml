@@ -8,6 +8,12 @@ jobs:
   move-card:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Change directory to subfolder
+        working-directory: ./pexinxa-front
+
       - uses: alex-page/github-project-automation-plus@v0.3.0
         with:
           project: "PexinxaReactApp"
