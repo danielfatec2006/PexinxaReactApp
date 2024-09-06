@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Change directory to subfolder
-        working-directory: ./pexinxa-front
+        run: cd ./pexinxa-front
 
       - uses: alex-page/github-project-automation-plus@v0.3.0
         with:
