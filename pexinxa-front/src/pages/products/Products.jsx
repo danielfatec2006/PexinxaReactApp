@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Heart, X, SlidersHorizontal } from "lucide-react"
-import { Navbar } from '/src/components/Navbar.jsx'
-import { Footer } from '/src/components/Footer'
+import { Navbar } from '../../components/NavBar'
+import { Footer } from '../../components/Footer'
 
 export const Product = () => {
   const [isFilterOpen, setIsFilterOpen] = useState(false)
