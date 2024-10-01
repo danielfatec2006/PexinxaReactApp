@@ -7,6 +7,7 @@ export const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const { user, googleSignIn, emailPasswordSignIn, signOut } = useAuthentication();
+  const [errorMessage, setErrorMessage] = useState('')  
   const navigate = useNavigate();
 
   const handleGoogleSignIn = async () => {
@@ -27,8 +28,9 @@ export const LoginForm = () => {
       console.log('Successfully signed in with email and password:', user);
       navigate('/'); 
     } catch (error) {
-      console.error('Error signing in:', error.message);
-    }
+      console.error('Error signing in:', error.message); 
+      setErrorMessage('Senha ou E-mail Invalido.');
+    } 
   };
 
   const handleSignOut = async () => {
@@ -60,14 +62,16 @@ export const LoginForm = () => {
     <div className="flex h-screen items-center justify-center">
       <button 
         onClick={() => navigate("/")} 
-        className="absolute top-4 left-4 text-orange-500 hover:text-gray-900"
-      >
+        className="absolute top-4 left-4 text-orange-500 hover:text-gray-900">
         <FaArrowLeft size={24} />
       </button>
       <div className="w-full max-w-md p-8 bg-white rounded-lg shadow-md">
         <div className="mb-8 text-center">
           <img src="/placeholder.svg" alt="Logo" width={64} height={64} className="mx-auto" />
           <h2 className="mt-4 text-2xl font-bold text-gray-900">Acesse sua Conta</h2>
+
+          
+
         </div>
         <button
           onClick={handleGoogleSignIn}
@@ -128,6 +132,11 @@ export const LoginForm = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
+          {errorMessage && (
+          <div className="mb-3 p-4 text-red-800 bg-red-200 rounded-md text-center">
+            {errorMessage}
+          </div>
+        )}
           <div className="flex items-center justify-between">
             <div className="text-sm">
               <a href="#" className="font-medium text-orange-500 hover:text-orange-400">

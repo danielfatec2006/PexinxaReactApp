@@ -1,6 +1,7 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword } from 'firebase/auth';
 import { getFirestore } from "firebase/firestore";
+import { initializeAppCheck, ReCaptchaV3Provider } from "firebase/app-check";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDfY-x8Va-kPjTxY47t9BohuTm5pI411p0",
@@ -23,8 +24,14 @@ export const emailPasswordSignIn = async (email, password) => {
 
 const app = initializeApp(firebaseConfig);
 
+
+const appCheck = initializeAppCheck(app, {
+    provider: new ReCaptchaV3Provider('6LdHLVQqAAAAAE8UaEQu-hQANQi6C3DEl_KlYVbb'),
+    isTokenAutoRefreshEnabled: true 
+  });
+
 const auth = getAuth(app);
 const db = getFirestore(app);
 const googleProvider = new GoogleAuthProvider();
 
-export {db,auth,googleProvider};
+export {db,auth,googleProvider, appCheck};
