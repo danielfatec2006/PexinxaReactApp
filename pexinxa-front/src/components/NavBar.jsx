@@ -3,10 +3,11 @@ import { Search, User, ShoppingBag, MapPin } from "lucide-react";
 import { Link } from 'react-router-dom';
 import { Button } from "./ui/Button";
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
-
+import { useAuth } from '../context/AuthContext'; 
 
 export const Navbar = () => {
   const navigate = useNavigate();
+  const { currentUser, logout } = useAuth();
 
   return (
     <nav className="bg-sky-500 p-10">
@@ -34,13 +35,15 @@ export const Navbar = () => {
             <MapPin className="h-4 w-4 mr-1" />
             <span className="text-sm">Mateus - SP</span>
           </div>
+
+          {currentUser ? (
             <>
               <DropdownMenu.Root>
                 <DropdownMenu.Trigger asChild>
                   <User className="text-white">Menu</User>
                 </DropdownMenu.Trigger>
                 <DropdownMenu.Content className="bg-white p-2 rounded-md shadow-lg">
-                  <DropdownMenu.Label>Olá icaro</DropdownMenu.Label>
+                  <DropdownMenu.Label>Olá, {currentUser.displayName}</DropdownMenu.Label>
                   <DropdownMenu.Separator className="my-1" />
                   <DropdownMenu.Item onSelect={() => console.log('Perfil')}>
                     Perfil
@@ -48,7 +51,7 @@ export const Navbar = () => {
                   <DropdownMenu.Item onSelect={() => console.log('Pedidos')}>
                     Pedidos
                   </DropdownMenu.Item>
-                  <DropdownMenu.Item>
+                  <DropdownMenu.Item onSelect={logout}>
                     Sair
                   </DropdownMenu.Item>
                 </DropdownMenu.Content>
@@ -60,6 +63,7 @@ export const Navbar = () => {
                 </span>
               </div>
             </>
+          ) : (
             <>
               <Button
                 variant="ghost"
@@ -77,6 +81,7 @@ export const Navbar = () => {
                 Login
               </Button>
             </>
+          )}
         </div>
       </div>
     </nav>
