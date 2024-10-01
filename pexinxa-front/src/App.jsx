@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/home/Home';
 import LoginForm from './pages/login/Login';
 import RegisterForm from './pages/register/Register';
+import CookieCard from './components/CookieCard';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
             <Route path="/register" element={<RegisterForm />} />
           </Routes>
         </main>
+        <CookieCard />
       </div>
     </Router>
   );
