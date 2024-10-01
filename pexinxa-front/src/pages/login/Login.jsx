@@ -2,12 +2,14 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuthentication } from '../../hooks/useAuthentication'; 
 import { FaArrowLeft } from 'react-icons/fa';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 export const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const { user, googleSignIn, emailPasswordSignIn, signOut } = useAuthentication();
-  const [errorMessage, setErrorMessage] = useState('')  
+  const [errorMessage, setErrorMessage] = useState('');
+  const [recaptchaToken, setRecaptchaToken] = useState('');  // Recaptcha token state
   const navigate = useNavigate();
 
   const handleGoogleSignIn = async () => {
@@ -22,6 +24,11 @@ export const LoginForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!recaptchaToken) {
+      setErrorMessage("Por favor, verifique o reCAPTCHA antes de fazer o login.");
+      return;
+    }
 
     try {
       const user = await emailPasswordSignIn(email, password);
@@ -40,6 +47,10 @@ export const LoginForm = () => {
     } catch (error) {
       console.error('Error signing out:', error.message);
     }
+  };
+
+  const onReCAPTCHAChange = (token) => {
+    setRecaptchaToken(token); 
   };
 
   if (user) {
@@ -69,11 +80,10 @@ export const LoginForm = () => {
         <div className="mb-8 text-center">
           <img src="/placeholder.svg" alt="Logo" width={64} height={64} className="mx-auto" />
           <h2 className="mt-4 text-2xl font-bold text-gray-900">Acesse sua Conta</h2>
-
-          
-
         </div>
-        <button
+
+    
+<button
           onClick={handleGoogleSignIn}
           className="w-full py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50"
         >
@@ -100,9 +110,7 @@ export const LoginForm = () => {
             Fazer login com o Google
           </span>
         </button>
-        <div className="mt-6 text-center text-sm">
-          <span className="px-2 bg-white text-gray-500">ou</span>
-        </div>
+        
         <form onSubmit={handleSubmit} className="mt-6 space-y-6">
           <div>
             <label htmlFor="email" className="block text-sm font-medium text-gray-700">
@@ -133,10 +141,10 @@ export const LoginForm = () => {
             />
           </div>
           {errorMessage && (
-          <div className="mb-3 p-4 text-red-800 bg-red-200 rounded-md text-center">
-            {errorMessage}
-          </div>
-        )}
+            <div className="mb-3 p-4 text-red-800 bg-red-200 rounded-md text-center">
+              {errorMessage}
+            </div>
+          )}
           <div className="flex items-center justify-between">
             <div className="text-sm">
               <a href="#" className="font-medium text-orange-500 hover:text-orange-400">
@@ -152,6 +160,13 @@ export const LoginForm = () => {
               Entrar
             </button>
           </div>
+          
+        <ReCAPTCHA 
+          className='flex justify-center'
+          sitekey="6LdHLVQqAAAAAOPz0_KckRO8TGbeGsXxUoM6MgdM"
+          onChange={onReCAPTCHAChange} 
+        />
+
         </form>
         <div className="mt-6 text-center">
           <Link to="/register" className="text-sm font-medium text-orange-500 hover:text-orange-400">
