@@ -10,7 +10,7 @@ export const Register = () => {
   const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
   const [successMessage, setSuccessMessage] = useState('') 
-  const [errorMessage, setErrorMessage] = useState('')  // 
+  const [errorMessage, setErrorMessage] = useState('') 
   const navigate = useNavigate(); 
 
   const handleGoogleSignUp = async () => {
@@ -49,11 +49,9 @@ export const Register = () => {
     <div className="flex h-screen items-center justify-center">
       <button 
         onClick={() => navigate("/")} 
-        className="absolute top-4 left-4 text-orange-500 hover:text-gray-900"
-      >
+        className="absolute top-4 left-4 text-orange-500 hover:text-gray-900">
         <FaArrowLeft size={24} />
       </button>
-
       <div className="w-full max-w-md p-8 bg-white bg-opacity-80 rounded-lg shadow-md relative z-10">
         <div className="mb-8 text-center">
           <img src="/placeholder.svg" alt="Logo" width={64} height={64} className="mx-auto" />
