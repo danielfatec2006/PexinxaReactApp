@@ -1,5 +1,5 @@
-import { Navbar } from '/src/components/Navbar.jsx'
-import { Footer } from '/src/components/Footer'
+import { Navbar } from '../../components/NavBar.jsx'
+import { Footer } from '../../components/Footer.jsx'
 
 export const Home = () => {
   
