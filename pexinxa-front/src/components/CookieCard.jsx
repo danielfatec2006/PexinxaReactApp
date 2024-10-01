@@ -1,25 +1,30 @@
 import { useState, useEffect } from "react";
 import Cookies from "js-cookie";
-import { db } from "../firebase/config"; 
-import { doc, setDoc } from "firebase/firestore"; 
+import { db } from "../firebase/config";
+import { doc, setDoc } from "firebase/firestore";
+import { v4 as uuidv4 } from "uuid";
 
 export const CookieCard = () => {
   const [showCookieCard, setShowCookieCard] = useState(false);
 
   useEffect(() => {
     const consent = Cookies.get("cookieConsent");
+    console.log("Cookie consent encontrado?", consent);
+
     if (!consent) {
+      console.log("Mostrando Cookie Card");
       setShowCookieCard(true);
     }
   }, []);
 
   const handleAccept = async () => {
     Cookies.set("cookieConsent", "accepted", { expires: 365 });
+    console.log("Cookie de consentimento salvo com sucesso");
     document.cookie = "cookieName=cookieValue; SameSite=None; Secure";
-    setShowCookieCard(false); 
+    setShowCookieCard(false);
 
     try {
-      const userId = "user-unique-id"; 
+      const userId = uuidv4();
       await setDoc(doc(db, "cookieConsents", userId), {
         consent: "accepted",
         date: new Date().toISOString(),
@@ -33,10 +38,12 @@ export const CookieCard = () => {
   if (!showCookieCard) {
     return null;
   }
-
   return (
     <div className="fixed bottom-4 left-4 right-4 bg-gray-100 p-4 border border-gray-300 shadow-lg rounded-md flex justify-between items-center">
-      <p className="text-gray-800">Este site usa cookies para garantir que você obtenha a melhor experiência em nosso site.</p>
+      <p className="text-gray-800">
+        Este site usa cookies para garantir que você obtenha a melhor
+        experiência em nosso site.
+      </p>
       <div className="flex space-x-4">
         <button
           className="bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-400 transition"
