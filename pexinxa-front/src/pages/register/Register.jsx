@@ -49,7 +49,7 @@ export const Register = () => {
   return (
     <div className="flex h-screen items-center justify-center"
     style={{
-      backgroundImage: "url(/src/assets/background.png)",
+      backgroundImage: "url(../../../public/background.png)",
       backgroundSize: "100%",
       backgroundPosition: "top",
       backgroundRepeat: "no-repeat",
