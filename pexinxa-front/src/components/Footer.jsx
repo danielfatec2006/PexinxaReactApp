@@ -1,25 +1,31 @@
-import { Instagram, Linkedin, Github } from "lucide-react" 
+import { Instagram, Linkedin, Github } from "lucide-react";
+import logoFooter from "../assets/PexinxaFooter.png";
 
 export const Footer = () => {
   return (
-    <>
-    <footer className="bg-sky-500 text-white p-4">
-      <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
-        <div className="mb-4 md:mb-0">
-          <h2 className="text-2xl font-bold">Pexinxa</h2>
-          <p>Contato</p>
-          <p>Av. Humb Gabriel, 1360 - Res. Olivo Benassi, Marão - SP 15990-519</p>
+    <footer className="bg-sky-500 text-white py-8">
+      <div className="container mx-auto flex flex-col md:flex-row justify-between items-start md:items-center space-y-8 md:space-y-0">
+        <div className="flex flex-col items-center md:items-start">
+          <img src={logoFooter} alt="logo" className="w-48 h-auto mb-2" />
+          <p className="text-xs text-white">Copyright © 2024 - Todos os Direitos Reservados</p>
+        </div>
+        <div className="flex flex-col items-center md:items-start text-center md:text-left space-y-2">
+          <p className="font-bold text-lg">Contato</p>
+          <p>Av. Humb Gabriel, 1360 - Res. Olivo Benassi, Matão - SP 15990-519</p>
           <p>(16) 2016-2694</p>
           <p>contato@pexinxa.com.br</p>
         </div>
-        <div className="flex space-x-4">
-          <Instagram className="w-6 h-6" />
-          <Linkedin className="w-6 h-6" />
-          <Github className="w-6 h-6" />
+        <div className="flex flex-col items-center md:items-start">
+          <p className="font-bold text-lg mb-4">Mídias sociais</p>
+          <div className="flex space-x-4">
+            <Instagram className="w-6 h-6 text-white" />
+            <Linkedin className="w-6 h-6 text-white" />
+            <Github className="w-6 h-6 text-white" />
+          </div>
         </div>
       </div>
     </footer>
-    </>
-  )
-}
+  );
+};
+
 export default Footer;
