@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuthentication } from '../../hooks/useAuthentication'; 
 import { FaArrowLeft } from 'react-icons/fa';
+import OvalLogo from '../../assets/OvalLogo.svg';
 
 export const LoginForm = () => {
   const [email, setEmail] = useState('');
@@ -59,16 +60,23 @@ export const LoginForm = () => {
   }
 
   return (
-    <div className="flex h-screen items-center justify-center">
+    <div className="flex h-screen items-center justify-center"
+    style={{
+      backgroundImage: "url(/src/assets/background.png)",
+      backgroundSize: "100%",
+      backgroundPosition: "top",
+      backgroundRepeat: "no-repeat",
+    }}
+  >
+      <div className="w-full max-w-md p-8 bg-white rounded-lg shadow-md relative">
       <button 
         onClick={() => navigate("/")} 
         className="absolute top-4 left-4 text-orange-500 hover:text-gray-900">
         <FaArrowLeft size={24} />
       </button>
-      <div className="w-full max-w-md p-8 bg-white rounded-lg shadow-md">
         <div className="mb-8 text-center">
-          <img src="/placeholder.svg" alt="Logo" width={64} height={64} className="mx-auto" />
-          <h2 className="mt-4 text-2xl font-bold text-gray-900">Acesse sua Conta</h2>
+          <img src={OvalLogo} alt="Logo" width={64} height={64} className="mx-auto" />
+          <h2 className="mt-4 text-2xl font-bold text-orange-500">Acesse sua Conta</h2>
 
           
 

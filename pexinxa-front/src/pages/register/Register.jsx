@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, updateProfile } from 'firebase/auth';
 import { auth } from '../../firebase/config';
 import { FaArrowLeft } from 'react-icons/fa'; 
+import OvalLogo from '../../assets/OvalLogo.svg';
 
 export const Register = () => {
   const [email, setEmail] = useState('')
@@ -46,16 +47,23 @@ export const Register = () => {
   }
 
   return (
-    <div className="flex h-screen items-center justify-center">
+    <div className="flex h-screen items-center justify-center"
+    style={{
+      backgroundImage: "url(/src/assets/background.png)",
+      backgroundSize: "100%",
+      backgroundPosition: "top",
+      backgroundRepeat: "no-repeat",
+    }}
+  >
+      <div className="w-full max-w-md p-8 bg-white bg-opacity-80 rounded-lg shadow-md relative z-10">
       <button 
         onClick={() => navigate("/")} 
         className="absolute top-4 left-4 text-orange-500 hover:text-gray-900">
         <FaArrowLeft size={24} />
       </button>
-      <div className="w-full max-w-md p-8 bg-white bg-opacity-80 rounded-lg shadow-md relative z-10">
         <div className="mb-8 text-center">
-          <img src="/placeholder.svg" alt="Logo" width={64} height={64} className="mx-auto" />
-          <h2 className="mt-4 text-2xl font-bold text-gray-900">Crie sua conta</h2>
+          <img src={OvalLogo} alt="Logo" width={64} height={64} className="mx-auto" />
+          <h2 className="mt-4 text-2xl font-bold text-orange-500">Crie sua conta</h2>
         </div>
 
         {successMessage && (
