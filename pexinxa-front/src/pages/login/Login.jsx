@@ -7,15 +7,17 @@ import OvalLogo from '../../assets/OvalLogo.svg';
 export const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { user, googleSignIn, emailPasswordSignIn, signOut } = useAuthentication();
+  const { googleSignIn, emailPasswordSignIn,  } = useAuthentication();
   const [errorMessage, setErrorMessage] = useState('')  
+  const [successMessage, setSuccessMessage] = useState('') 
   const navigate = useNavigate();
 
   const handleGoogleSignIn = async () => {
     try {
       const user = await googleSignIn();
       console.log('Successfully signed in with Google:', user);
-      navigate('/'); 
+      setSuccessMessage('Login feito com sucesso!'); 
+      setTimeout(() => navigate('/'), 2000); 
     } catch (error) {
       console.error('Error signing in with Google:', error.message);
     }
@@ -27,37 +29,13 @@ export const LoginForm = () => {
     try {
       const user = await emailPasswordSignIn(email, password);
       console.log('Successfully signed in with email and password:', user);
-      navigate('/'); 
+      setSuccessMessage('Login feito com sucesso!'); 
+      setTimeout(() => navigate('/'), 2000); 
     } catch (error) {
       console.error('Error signing in:', error.message); 
       setErrorMessage('Senha ou E-mail Invalido.');
     } 
   };
-
-  const handleSignOut = async () => {
-    try {
-      await signOut();
-      console.log('Signed out successfully');
-    } catch (error) {
-      console.error('Error signing out:', error.message);
-    }
-  };
-
-  if (user) {
-    return (
-      <div className="flex h-screen items-center justify-center">
-        <div className="w-full max-w-md p-8 bg-white rounded-lg shadow-md">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Bem-vindo, {user.displayName || user.email}!</h2>
-          <button
-            onClick={handleSignOut}
-            className="w-full py-2 px-4 bg-red-500 text-white rounded-md hover:bg-red-600"
-          >
-            Sair
-          </button>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="flex h-screen items-center justify-center"
@@ -78,7 +56,7 @@ export const LoginForm = () => {
           <img src={OvalLogo} alt="Logo" width={64} height={64} className="mx-auto" />
           <h2 className="mt-4 text-2xl font-bold text-orange-500">Acesse sua Conta</h2>
 
-          
+            
 
         </div>
         <button
@@ -113,6 +91,12 @@ export const LoginForm = () => {
         </div>
         <form onSubmit={handleSubmit} className="mt-6 space-y-6">
           <div>
+
+          {successMessage && (
+          <div className="mb-4 p-4 text-green-800 bg-green-200 rounded-md text-center">
+            {successMessage}
+          </div>
+        )} 
             <label htmlFor="email" className="block text-sm font-medium text-gray-700">
               Email
             </label>
