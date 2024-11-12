@@ -6,8 +6,7 @@ export const Footer = () => {
     <footer className="bg-sky-500 text-white py-8">
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-start md:items-center space-y-8 md:space-y-0">
         <div className="flex flex-col items-center md:items-start">
-          <img src={logoFooter} alt="logo" className="w-48 h-auto mb-2" />
-          <p className="text-xs text-white">Copyright © 2024 - Todos os Direitos Reservados</p>
+          <img src={logoFooter} alt="logo" className="w-48 h-auto" />
         </div>
         <div className="flex flex-col items-center md:items-start text-center md:text-left space-y-2">
           <p className="font-bold text-lg">Contato</p>

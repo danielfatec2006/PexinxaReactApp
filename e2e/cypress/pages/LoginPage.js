@@ -20,7 +20,7 @@ class LoginPage{
     }
 
     sucessfulMessage(){
-        return cy.get('p-4 text-green-800 bg-green-200 rounded-md text-center'); 
+        return cy.get('.text-green-800.bg-green-200.text-center'); 
     }
 }
 export default new LoginPage();

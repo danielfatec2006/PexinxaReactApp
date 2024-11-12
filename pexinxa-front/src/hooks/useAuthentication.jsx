@@ -1,4 +1,3 @@
-// src/hooks/useAuthentication.js
 import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from 'firebase/auth';
 import { useState, useEffect } from 'react';
 import { auth } from '../firebase/config';
