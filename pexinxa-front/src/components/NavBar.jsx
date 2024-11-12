@@ -1,83 +1,113 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import { Search, User, ShoppingBag, MapPin } from "lucide-react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import { Button } from "./ui/Button";
-import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
-import { useAuth } from '../context/AuthContext'; 
-import OvalLogo from '../assets/OvalLogo.svg';
+import * as DropDownMenu from "@radix-ui/react-dropdown-menu";
+import { useAuth } from "../context/AuthContext";
+import OvalLogo from "../assets/OvalLogo.svg";
 
 export const Navbar = () => {
   const navigate = useNavigate();
   const { currentUser, logout } = useAuth();
 
   return (
-    <nav className="bg-sky-500 p-10">
-      <div className="container mx-auto flex items-center justify-between">
+    <nav className="bg-sky-500 py-10 shadow-md">
+      <div className="container mx-auto flex items-center justify-between px-4">
+        {/* Logo e Links de Navegação */}
         <div className="flex items-center space-x-4">
-          <img src={OvalLogo} alt="Logo" width={60} height={60} className="rounded-full" />
-          <div className="flex space-x-4 text-white text-sm">
-            <Link to="/" className="hover:underline">Início</Link>
-            <Link to="/products" className="hover:underline">Produtos</Link>
-            <Link to="/sobre" className="hover:underline">Sobre</Link>
+          <img
+            src={OvalLogo}
+            alt="Logo"
+            width={60}
+            height={60}
+            className="rounded-full"
+          />
+          <div className="hidden md:flex space-x-6 text-white text-sm font-medium">
+            <Link to="/" className="hover:text-sky-200 transition">
+              Início
+            </Link>
+            <Link to="/products" className="hover:text-sky-200 transition">
+              Produtos
+            </Link>
+            <Link to="/sobre" className="hover:text-sky-200 transition">
+              Sobre
+            </Link>
           </div>
         </div>
-        <div className="flex-grow mx-4">
-          <div className="relative">
-            <input
-              type="text"
-              placeholder="Busque por item ou por mercado..."
-              className="w-full p-2 pl-10 rounded-full text-sm"
-            />
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
-          </div>
+
+        {/* Barra de Busca */}
+        <div className="flex-1 mx-4 relative hidden md:block">
+          <input
+            type="text"
+            placeholder="Busque por item ou por mercado..."
+            className="w-full px-4 py-2 pl-10 rounded-full text-sm bg-white text-gray-600 border border-gray-300 outline-none focus:ring-2 focus:ring-sky-300"
+          />
+          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-orange-400 h-5 w-5" />
         </div>
+
+        {/* Menu de Usuário e Carrinho */}
         <div className="flex items-center space-x-4">
-          <div className="flex items-center text-white">
-            <MapPin className="h-4 w-4 mr-1" />
-            <span className="text-sm">Mateus - SP</span>
+          <div className="flex items-center text-white text-sm space-x-1">
+            <MapPin className="h-4 w-4" />
+            <span>Matão - SP</span>
           </div>
 
           {currentUser ? (
             <>
-              <DropdownMenu.Root>
-                <DropdownMenu.Trigger asChild>
-                  <User className="text-white">Menu</User>
-                </DropdownMenu.Trigger>
-                <DropdownMenu.Content className="bg-white p-2 rounded-md shadow-lg">
-                  <DropdownMenu.Label>Olá, {currentUser.displayName}</DropdownMenu.Label>
-                  <DropdownMenu.Separator className="my-1" />
-                  <DropdownMenu.Item onSelect={() => console.log('Perfil')}>
+              {/* Menu do Usuário (Quando Logado) */}
+              <DropDownMenu.Root>
+                <DropDownMenu.Trigger asChild>
+                  <User className="text-white h-5 w-5 cursor-pointer" />
+                </DropDownMenu.Trigger>
+                <DropDownMenu.Content className="bg-white p-3 rounded-lg shadow-lg">
+                  <DropDownMenu.Label className="text-gray-700">
+                    Olá, {currentUser?.displayName || "Visitante"}
+                  </DropDownMenu.Label>
+                  <DropDownMenu.Separator className="my-2 border-t" />
+                  <DropDownMenu.Item
+                    className="cursor-pointer text-gray-600 hover:bg-gray-100 p-2 rounded-md"
+                    onSelect={() => console.log("Perfil")}
+                  >
                     Perfil
-                  </DropdownMenu.Item>
-                  <DropdownMenu.Item onSelect={() => console.log('Pedidos')}>
+                  </DropDownMenu.Item>
+                  <DropDownMenu.Item
+                    className="cursor-pointer text-gray-600 hover:bg-gray-100 p-2 rounded-md"
+                    onSelect={() => console.log("Pedidos")}
+                  >
                     Pedidos
-                  </DropdownMenu.Item>
-                  <DropdownMenu.Item onSelect={logout}>
+                  </DropDownMenu.Item>
+                  <DropDownMenu.Item
+                    className="cursor-pointer text-gray-600 hover:bg-gray-100 p-2 rounded-md"
+                    onSelect={logout}
+                  >
                     Sair
-                  </DropdownMenu.Item>
-                </DropdownMenu.Content>
-              </DropdownMenu.Root>
-              <div className="relative">
-                <ShoppingBag className="text-white" />
-                <span className="absolute -top-2 -right-2 bg-orange-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
-                  R$ 30,00
-                </span>
+                  </DropDownMenu.Item>
+                </DropDownMenu.Content>
+              </DropDownMenu.Root>
+
+              {/* Carrinho de Compras */}
+              <div className="flex items-center bg-sky-100 px-4 py-2 rounded-full text-sky-500 text-sm font-semibold space-x-2">
+                <ShoppingBag className="h-6 w-6 text-sky-500" />
+                <div className="flex flex-col items-start">
+                  <span>R$ 0,00</span>
+                  <span className="text-xs">0 Itens</span>
+                </div>
               </div>
             </>
           ) : (
             <>
+              {/* Botões de Login e Registro (Quando Deslogado) */}
               <Button
                 variant="ghost"
                 className="text-white text-sm"
-                onClick={() => navigate('/register')}
+                onClick={() => navigate("/register")}
               >
                 Criar conta
               </Button>
-
               <Button
                 variant="ghost"
                 className="text-white text-sm"
-                onClick={() => navigate('/login')}
+                onClick={() => navigate("/login")}
               >
                 Login
               </Button>
