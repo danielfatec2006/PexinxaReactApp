@@ -41,9 +41,6 @@ Como um consumidor atento aos preços e interessado em economizar, quero uma pla
 
 ### Requisitos Não Funcionais
 
-- **Interface para Mobile**
-  - A plataforma deve ser otimizada para dispositivos móveis, permitindo uma navegação ágil e sem atrasos.
-
 - **Confiabilidade das Informações**
   - As promoções exibidas devem ser atualizadas frequentemente, garantindo que o usuário veja dados precisos e relevantes para tomar suas decisões de compra.
 
@@ -65,19 +62,16 @@ A arquitetura do **Pexinxa** foi projetada para garantir escalabilidade, seguran
 ### Componentes Principais
 
 1. **Front-end (Aplicativo Móvel)**
-   - **Tecnologias**: React Native (para desenvolvimento mobile híbrido) + Vite
+   - **Tecnologias**: React + Vite
    - Responsável pela interface de usuário, onde os consumidores podem interagir com a plataforma, visualizar promoções, criar listas de compras, e comparar preços.
-   - Padrão de Design (MVC)
+   - Padrão de Design (MVC), Firebase (Firestore Database + Firebase Authentication)
+   - Rerenciamento a lógica de negócios, autenticação de usuários, e interações com o banco de dados, incluindo o gerenciamento de promoções e criação de listas.
 
-2. **Back-end**
-   - **Tecnologias**: Node.js + Firebase (Firestore Database + Firebase Authentication)
-   - O back-end gerencia a lógica de negócios, autenticação de usuários, e interações com o banco de dados, incluindo o gerenciamento de promoções e criação de listas.
-
-3. **Banco de Dados**
+2. **Banco de Dados**
    - **Tecnologia**: Firebase Firestore
    - Utilizado para armazenar informações dinâmicas sobre promoções, mercados, e listas de compras. A escolha do Firestore oferece alta escalabilidade, baixa latência, e sincronização em tempo real.
 
-4. **Serviços de Localização**
+3. **Serviços de Localização**
    - **Tecnologias**: APIs de geolocalização (Google Maps API ou similares)
    - As localizações dos mercados são determinadas com base na localização do usuário, e as distâncias são calculadas para comparar as lojas próximas.
 
@@ -136,9 +130,6 @@ Este projeto segue um padrão de integração contínua (CI/CD), garantindo que 
 
 2. **Segurança**
    - A plataforma deve garantir a proteção de dados do usuário, utilizando criptografia para o armazenamento de dados sensíveis.
-
-3. **Responsividade**
-   - O sistema deve ser responsivo e otimizado para dispositivos móveis, proporcionando uma boa experiência de usuário em smartphones e tablets.
 
 ---
 
