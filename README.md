@@ -37,7 +37,7 @@ Como um consumidor atento aos preços e interessado em economizar, quero uma pla
    - Após visualizar as ofertas, o usuário pode clicar nos produtos em promoção e adicioná-los a uma lista específica para o mercado onde a promoção está disponível. As listas são exibidas de maneira organizada e permitem ao usuário gerenciar os produtos selecionados.
 
 3. **Comparação Final e Decisão de Compra**
-   - Com suas listas montadas, o usuário pode acessar uma visão geral que compara os valores e proximidade dos mercados, ajudando-o a escolher a opção mais econômica e conveniente para o momento de compra. Esta visão exibe o valor total de cada lista e a distância de cada mercado.
+   - Com suas listas montadas, o usuário pode acessar uma visão geral que compara os valores e proximidade dos mercados, ajudando-o a escolher a opção mais econômica e conveniente para o momento de compra (lembrando que não sera feita a compra pelo app, APENAS A COMPARAÇÃO DE PREÇOS). Esta visão exibe o valor total de cada lista e a distância de cada mercado.
 
 ### Requisitos Não Funcionais
 
