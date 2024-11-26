@@ -146,4 +146,143 @@ Este projeto segue um padrão de integração contínua (CI/CD), garantindo que 
     1. Execute `npm run test`.
     2. Acesse a interface de testes no navegador para visualizar os resultados.
 ---
+
+### Tarefas de Melhoria em React Web  
+
+#### 1. Adicionar filtragem avançada de promoções  
+**Dificuldade:** 5  
+**Descrição:** Melhorar a funcionalidade de filtragem para incluir categorias adicionais (marca, preço mínimo/máximo) e combinações de filtros.  
+
+#### 2. Implementar visualização responsiva  
+**Dificuldade:** 8  
+**Descrição:** Ajustar o layout para se adaptar perfeitamente a diferentes resoluções, priorizando dispositivos móveis e tablets.  
+
+#### 3. Criar listas de compras compartilháveis  
+**Dificuldade:** 13  
+**Descrição:** Permitir que os usuários compartilhem suas listas de compras via links ou redes sociais.  
+
+#### 4. Implementar sistema de favoritos  
+**Dificuldade:** 13  
+**Descrição:** Adicionar uma funcionalidade onde os usuários possam marcar mercados ou produtos como favoritos para acessá-los rapidamente.  
+
+#### 5. Adicionar tema escuro  
+**Dificuldade:** 21  
+**Descrição:** Implementar um tema escuro com alternância dinâmica para melhorar a experiência do usuário.  
+
+#### 6. Sistema de notificações no navegador  
+**Dificuldade:** 34  
+**Descrição:** Adicionar notificações de promoções diretamente no navegador (push notifications).  
+
+#### 7. Modo offline para listas  
+**Dificuldade:** 34  
+**Descrição:** Permitir que os usuários editem listas de compras mesmo sem conexão à internet, com sincronização posterior.  
+
+#### 8. Personalizar promoções com base em histórico  
+**Dificuldade:** 34  
+**Descrição:** Criar uma funcionalidade que sugira promoções com base no histórico de listas de compras do usuário.  
+
+#### 9. Implementar mapa interativo para mercados  
+**Dificuldade:** 55  
+**Descrição:** Adicionar um mapa interativo com os mercados próximos e suas promoções, permitindo interação direta com as localizações.  
+
+#### 10. Implementar notificações personalizadas baseadas em proximidade  
+**Dificuldade:** 21  
+**Descrição:** Adicionar notificações que alertem o usuário sobre promoções em mercados próximos quando estiver na região.  
+
+#### 11. Implementar busca inteligente de promoções  
+**Dificuldade:** 21  
+**Descrição:** Adicionar um sistema de busca que sugira promoções relevantes com base no histórico de buscas e listas.  
+
+#### 12. Adicionar funcionalidade de histórico de promoções  
+**Dificuldade:** 34  
+**Descrição:** Permitir que os usuários vejam promoções passadas para planejar compras futuras ou verificar padrões de preços.  
+
+#### 13. Criar tutorial interativo para novos usuários  
+**Dificuldade:** 13  
+**Descrição:** Implementar um tutorial interativo que explique como usar as principais funcionalidades do aplicativo.  
+
+#### 14. Implementar carregamento de imagens otimizado  
+**Dificuldade:** 13  
+**Descrição:** Usar lazy loading para imagens de promoções e listas, reduzindo o consumo de dados e melhorando a performance.  
+
+#### 15. Melhorar as animações de interface  
+**Dificuldade:** 13  
+**Descrição:** Adicionar animações sutis em interações importantes (ex.: ao adicionar/remover produtos de listas).  
+
+#### 16. Permitir personalização de listas de compras  
+**Dificuldade:** 21  
+**Descrição:** Adicionar opções para que os usuários personalizem suas listas com cores, ícones e anotações.  
+
+#### 17. Criar funcionalidade de exportação de listas  
+**Dificuldade:** 21  
+**Descrição:** Permitir que os usuários exportem suas listas em formatos PDF ou CSV para impressão ou compartilhamento.  
+
+#### 18. Implementar monitoramento de performance  
+**Dificuldade:** 21  
+**Descrição:** Adicionar monitoramento de performance para medir o tempo de carregamento e interações do usuário no aplicativo.  
+
+#### 19. Criar sistema de feedback de interface  
+**Dificuldade:** 21  
+**Descrição:** Permitir que os usuários deem feedback sobre a interface diretamente pelo aplicativo, sugerindo melhorias.  
+
+#### 20. Adicionar suporte para múltiplas listas simultâneas  
+**Dificuldade:** 21  
+**Descrição:** Permitir que os usuários trabalhem com várias listas abertas ao mesmo tempo, facilitando o planejamento de compras em diferentes mercados.  
+
+#### 21. Adicionar integração com APIs de clima  
+**Dificuldade:** 13  
+**Descrição:** Exibir informações meteorológicas para ajudar os usuários a planejar suas compras em dias mais convenientes.  
+
+#### 22. Criar funcionalidade de notificações locais  
+**Dificuldade:** 21  
+**Descrição:** Adicionar suporte para notificações locais no navegador sobre promoções ou listas salvas.  
+
+#### 23. Adicionar sistema de autenticação  
+**Dificuldade:** 34  
+**Descrição:** Permitir que os usuários façam login para salvar configurações e listas personalizadas.  
+
+#### 24. Implementar sugestões de compras recorrentes  
+**Dificuldade:** 34  
+**Descrição:** Criar uma funcionalidade que sugira produtos com base em compras frequentes do usuário.  
+
+#### 25. Melhorar SEO do aplicativo  
+**Dificuldade:** 21  
+**Descrição:** Otimizar tags e metadados para melhorar o ranqueamento do aplicativo em motores de busca.  
+
+#### 26. Adicionar suporte para multilíngue  
+**Dificuldade:** 34  
+**Descrição:** Implementar tradução para diferentes idiomas, começando com inglês e português.  
+
+#### 27. Criar modo "eco-friendly"  
+**Dificuldade:** 21  
+**Descrição:** Adicionar dicas para compras sustentáveis e reduzir o desperdício com base nas listas criadas.  
+
+#### 28. Adicionar integração com redes sociais  
+**Dificuldade:** 21  
+**Descrição:** Permitir que os usuários compartilhem listas ou promoções diretamente em suas redes sociais.  
+
+#### 29. Implementar pagamento via app  
+**Dificuldade:** 55  
+**Descrição:** Adicionar uma funcionalidade para pagamento direto no app por meio de carteiras digitais.  
+
+#### 30. Criar sistema de ranking de promoções  
+**Dificuldade:** 34  
+**Descrição:** Permitir que os usuários avaliem promoções para destacar as melhores ofertas.  
+
+#### 31. Criar sistema de listas colaborativas  
+**Dificuldade:** 34  
+**Descrição:** Permitir que várias pessoas editem a mesma lista de compras em tempo real.  
+
+#### 32. Adicionar navegação por comandos de voz  
+**Dificuldade:** 55  
+**Descrição:** Permitir que os usuários naveguem e criem listas usando comandos de voz.  
+
+#### 33. Criar página de estatísticas de compras  
+**Dificuldade:** 34  
+**Descrição:** Mostrar estatísticas sobre os gastos do usuário e padrões de compras ao longo do tempo.  
+
+#### 34. Implementar integração com APIs de cupons  
+**Dificuldade:** 34  
+**Descrição:** Permitir que os usuários adicionem cupons automaticamente às compras com base em promoções disponíveis.  
+
   Essa versão ampliada do README inclui detalhes cruciais sobre a arquitetura de software, fluxos de dados, requisitos funcionais e não funcionais e documentação adicional,     proporcionando uma visão clara tanto para desenvolvedores quanto para outros stakeholders envolvidos no projeto.
