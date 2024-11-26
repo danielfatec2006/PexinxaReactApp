@@ -149,170 +149,284 @@ Este projeto segue um padrão de integração contínua (CI/CD), garantindo que 
 
 # Tarefas de Melhoria em React Web
 
-## Tarefas de Dificuldade 5
-### 1. Adicionar filtragem avançada de promoções
-- **Descrição:** Melhorar a funcionalidade de filtragem para incluir categorias adicionais (marca, preço mínimo/máximo) e combinações de filtros.
+---
+
+## Adicionar filtragem avançada de promoções
+- **Dificuldade:** 5  
+- **Descrição:** Melhorar a funcionalidade de filtragem para incluir categorias adicionais (marca, preço mínimo/máximo) e combinações de filtros.  
 - **Dependências:** Atualização do estado global (ex.: Redux, Context API) e ajustes na UI de filtros.
 
-## Tarefas de Dificuldade 8
-### 2. Implementar visualização responsiva
-- **Descrição:** Ajustar o layout para se adaptar perfeitamente a diferentes resoluções, priorizando dispositivos móveis e tablets.
+---
+
+## Implementar visualização responsiva
+- **Dificuldade:** 8  
+- **Descrição:** Ajustar o layout para se adaptar perfeitamente a diferentes resoluções, priorizando dispositivos móveis e tablets.  
 - **Dependências:** Uso de frameworks CSS como Tailwind ou Material-UI.
 
-## Tarefas de Dificuldade 13
-### 3. Criar listas de compras compartilháveis
-- **Descrição:** Permitir que os usuários compartilhem suas listas de compras via links ou redes sociais.
+---
+
+## Criar listas de compras compartilháveis
+- **Dificuldade:** 13  
+- **Descrição:** Permitir que os usuários compartilhem suas listas de compras via links ou redes sociais.  
 - **Dependências:** Gerar links únicos utilizando UUIDs e integração com bibliotecas de compartilhamento (ex.: react-share).
 
-### 4. Implementar sistema de favoritos
-- **Descrição:** Adicionar uma funcionalidade onde os usuários possam marcar mercados ou produtos como favoritos para acessá-los rapidamente.
+---
+
+## Implementar sistema de favoritos
+- **Dificuldade:** 13  
+- **Descrição:** Adicionar uma funcionalidade onde os usuários possam marcar mercados ou produtos como favoritos para acessá-los rapidamente.  
 - **Dependências:** Atualizações no Firestore e no estado global para armazenar favoritos.
 
-### 5. Criar tutorial interativo para novos usuários
-- **Descrição:** Implementar um tutorial interativo que explique como usar as principais funcionalidades do aplicativo.
-- **Dependências:** Biblioteca para tutoriais interativos, como react-joyride.
+---
 
-### 6. Implementar carregamento de imagens otimizado
-- **Descrição:** Usar lazy loading para imagens de promoções e listas, reduzindo o consumo de dados e melhorando a performance.
-- **Dependências:** Utilizar a tag `loading="lazy"` nativa do HTML ou bibliotecas de lazy loading.
-
-### 7. Melhorar as animações de interface
-- **Descrição:** Adicionar animações sutis em interações importantes (ex.: ao adicionar/remover produtos de listas).
-- **Dependências:** Bibliotecas de animação como Framer Motion ou React Spring.
-
-### 8. Melhorar SEO para busca de promoções
-- **Descrição:** Otimizar o SEO para que promoções e informações de mercados sejam indexadas nos motores de busca.
-- **Dependências:** Configuração de react-helmet ou next/head para gerenciar metadados.
-
-### 9. Adicionar integração com APIs de clima
-- **Descrição:** Exibir informações meteorológicas para ajudar os usuários a planejar suas compras em dias mais convenientes.
-- **Dependências:** Integração com APIs de clima, como OpenWeatherMap.
-
-### 10. Adicionar rastreamento de métricas no PWA
-- **Descrição:** Implementar um sistema para monitorar como os usuários interagem com o PWA, identificando áreas de melhoria.
-- **Dependências:** Firebase Analytics ou ferramentas como Google Analytics.
-
-## Tarefas de Dificuldade 21
-### 11. Criar componente de comparação visual de preços
-- **Descrição:** Desenvolver um gráfico comparativo de preços entre mercados utilizando bibliotecas como Chart.js ou Recharts.
+## Criar componente de comparação visual de preços
+- **Dificuldade:** 21  
+- **Descrição:** Desenvolver um gráfico comparativo de preços entre mercados utilizando bibliotecas como Chart.js ou Recharts.  
 - **Dependências:** Atualizar a lógica de cálculo no front-end e integrar a biblioteca de gráficos.
 
-### 12. Adicionar tema escuro
-- **Descrição:** Implementar um tema escuro com alternância dinâmica para melhorar a experiência do usuário.
+---
+
+## Adicionar tema escuro
+- **Dificuldade:** 21  
+- **Descrição:** Implementar um tema escuro com alternância dinâmica para melhorar a experiência do usuário.  
 - **Dependências:** Configurar suporte para alternância de temas via Context API ou CSS-in-JS.
 
-### 13. Implementar notificações personalizadas baseadas em proximidade
-- **Descrição:** Adicionar notificações que alertem o usuário sobre promoções em mercados próximos quando estiver na região.
-- **Dependências:** Geolocation API e Notification API para integração.
+---
 
-### 14. Implementar busca inteligente de promoções
-- **Descrição:** Adicionar um sistema de busca que sugira promoções relevantes com base no histórico de buscas e listas.
-- **Dependências:** Algoritmo simples no front-end para processamento de dados e Firestore para armazenamento de histórico.
-
-### 15. Personalizar promoções com base em histórico
-- **Descrição:** Criar uma funcionalidade que sugira promoções com base no histórico de listas de compras do usuário.
-- **Dependências:** Lógica adicional no front-end para análise do histórico armazenado no Firestore.
-
-### 16. Permitir personalização de listas de compras
-- **Descrição:** Adicionar opções para que os usuários personalizem suas listas com cores, ícones e anotações.
-- **Dependências:** Atualização na UI e armazenamento no Firestore.
-
-### 17. Criar funcionalidade de exportação de listas
-- **Descrição:** Permitir que os usuários exportem suas listas em formatos PDF ou CSV para impressão ou compartilhamento.
-- **Dependências:** Biblioteca para geração de arquivos, como jspdf ou papaparse.
-
-### 18. Implementar monitoramento de performance
-- **Descrição:** Adicionar monitoramento de performance para medir o tempo de carregamento e interações do usuário no aplicativo.
-- **Dependências:** Firebase Performance Monitoring ou ferramentas como Lighthouse para relatórios.
-
-### 19. Adicionar suporte a QR Code para compartilhamento de listas
-- **Descrição:** Gerar QR Codes para listas de compras, permitindo que os usuários compartilhem suas listas rapidamente.
-- **Dependências:** Biblioteca como qrcode.react para geração de QR Codes.
-
-### 20. Criar sistema de feedback de interface
-- **Descrição:** Permitir que os usuários deem feedback sobre a interface diretamente pelo aplicativo, sugerindo melhorias.
-- **Dependências:** Firebase Firestore para armazenar feedbacks e ajuste na UI para formulário de envio.
-
-### 21. Adicionar suporte para múltiplas listas simultâneas
-- **Descrição:** Permitir que os usuários trabalhem com várias listas abertas ao mesmo tempo, facilitando o planejamento de compras em diferentes mercados.
-- **Dependências:** Ajustes no estado global (Redux ou Context API) para gerenciar múltiplas listas.
-
-### 22. Adicionar notificações locais
-- **Descrição:** Adicionar suporte para notificações locais no navegador sobre promoções ou listas salvas.
-- **Dependências:** Notification API e ajuste no PWA.
-
-### 23. Implementar sugestão automática de categorias
-- **Descrição:** Ao criar uma lista ou buscar produtos, sugerir categorias automaticamente com base no texto inserido.
-- **Dependências:** Algoritmos simples de categorização no front-end e dados armazenados no Firestore.
-
-## Tarefas de Dificuldade 34
-### 24. Sistema de notificações no navegador
-- **Descrição:** Adicionar notificações de promoções diretamente no navegador (push notifications).
+## Sistema de notificações no navegador
+- **Dificuldade:** 34  
+- **Descrição:** Adicionar notificações de promoções diretamente no navegador (push notifications).  
 - **Dependências:** Implementar Firebase Cloud Messaging (FCM) e ajustar permissões no navegador.
 
-### 25. Modo offline para listas
-- **Descrição:** Permitir que os usuários editem listas de compras mesmo sem conexão à internet, com sincronização posterior.
+---
+
+## Modo offline para listas
+- **Dificuldade:** 34  
+- **Descrição:** Permitir que os usuários editem listas de compras mesmo sem conexão à internet, com sincronização posterior.  
 - **Dependências:** Uso do IndexedDB (via bibliotecas como idb) ou LocalStorage para armazenamento temporário.
 
-### 26. Adicionar funcionalidade de histórico de promoções
-- **Descrição:** Permitir que os usuários vejam promoções passadas para planejar compras futuras ou verificar padrões de preços.
+---
+
+## Personalizar promoções com base em histórico
+- **Dificuldade:** 34  
+- **Descrição:** Criar uma funcionalidade que sugira promoções com base no histórico de listas de compras do usuário.  
+- **Dependências:** Lógica adicional no front-end para análise do histórico armazenado no Firestore.
+
+---
+
+## Implementar mapa interativo para mercados
+- **Dificuldade:** 55  
+- **Descrição:** Adicionar um mapa interativo com os mercados próximos e suas promoções, permitindo interação direta com as localizações.  
+- **Dependências:** Google Maps API e integração no React com bibliotecas como `react-google-maps` ou `leaflet`.
+
+---
+
+## Implementar notificações personalizadas baseadas em proximidade
+- **Dificuldade:** 21  
+- **Descrição:** Adicionar notificações que alertem o usuário sobre promoções em mercados próximos quando estiver na região.  
+- **Dependências:** Geolocation API e Notification API para integração.
+
+---
+
+## Implementar busca inteligente de promoções
+- **Dificuldade:** 21  
+- **Descrição:** Adicionar um sistema de busca que sugira promoções relevantes com base no histórico de buscas e listas.  
+- **Dependências:** Algoritmo simples no front-end para processamento de dados e Firestore para armazenamento de histórico.
+
+---
+
+## Adicionar funcionalidade de histórico de promoções
+- **Dificuldade:** 34  
+- **Descrição:** Permitir que os usuários vejam promoções passadas para planejar compras futuras ou verificar padrões de preços.  
 - **Dependências:** Firebase Firestore para armazenar dados históricos e atualização na interface.
 
-### 27. Implementar sistema de cashback
-- **Descrição:** Criar um sistema de cashback, permitindo que os usuários acumulem créditos ao usar o aplicativo.
-- **Dependências:** Firebase Firestore para gerenciamento de créditos e lógica no front-end.
+---
 
-### 28. Criar sistema de ranking para mercados
-- **Descrição:** Adicionar uma funcionalidade onde os usuários podem visualizar um ranking dos mercados com base em avaliações, proximidade e promoções.
-- **Dependências:** Firebase Firestore para armazenar avaliações e lógica no front-end para calcular o ranking.
+## Criar tutorial interativo para novos usuários
+- **Dificuldade:** 13  
+- **Descrição:** Implementar um tutorial interativo que explique como usar as principais funcionalidades do aplicativo.  
+- **Dependências:** Biblioteca para tutoriais interativos, como `react-joyride`.
 
-### 29. Adicionar integração com APIs de preços em tempo real
-- **Descrição:** Implementar uma funcionalidade que atualize os preços dos produtos em tempo real, diretamente da API de fornecedores ou mercados parceiros.
-- **Dependências:** Configuração de integrações com APIs externas e ajustes na sincronização com Firestore.
+---
 
-### 30. Implementar gamificação para engajamento
-- **Descrição:** Criar um sistema de gamificação que recompensa usuários com pontos ou distintivos por usar o aplicativo, completar listas ou avaliar mercados.
-- **Dependências:** Lógica adicional no front-end para registrar ações e armazenamento no Firestore.
+## Implementar carregamento de imagens otimizado
+- **Dificuldade:** 13  
+- **Descrição:** Usar lazy loading para imagens de promoções e listas, reduzindo o consumo de dados e melhorando a performance.  
+- **Dependências:** Utilizar a tag `loading="lazy"` nativa do HTML ou bibliotecas de lazy loading.
 
-### 31. Adicionar suporte para login biométrico
-- **Descrição:** Implementar login utilizando biometria (impressão digital ou reconhecimento facial) nos dispositivos que suportam.
+---
+
+## Adicionar sistema de cupons
+- **Dificuldade:** 34  
+- **Descrição:** Implementar um recurso onde os usuários podem resgatar e gerenciar cupons de desconto diretamente no aplicativo.  
+- **Dependências:** Firebase Firestore para armazenar e gerenciar cupons e atualizações no front-end para exibição e uso.
+
+---
+
+## Melhorar as animações de interface
+- **Dificuldade:** 13  
+- **Descrição:** Adicionar animações sutis em interações importantes (ex.: ao adicionar/remover produtos de listas).  
+- **Dependências:** Bibliotecas de animação como Framer Motion ou React Spring.
+
+---
+
+## Permitir personalização de listas de compras
+- **Dificuldade:** 21  
+- **Descrição:** Adicionar opções para que os usuários personalizem suas listas com cores, ícones e anotações.  
+- **Dependências:** Atualização na UI e armazenamento no Firestore.
+
+---
+
+## Criar funcionalidade de exportação de listas
+- **Dificuldade:** 21  
+- **Descrição:** Permitir que os usuários exportem suas listas em formatos PDF ou CSV para impressão ou compartilhamento.  
+- **Dependências:** Biblioteca para geração de arquivos, como `jspdf` ou `papaparse`.
+
+---
+
+## Implementar monitoramento de performance
+- **Dificuldade:** 21  
+- **Descrição:** Adicionar monitoramento de performance para medir o tempo de carregamento e interações do usuário no aplicativo.  
+- **Dependências:** Firebase Performance Monitoring ou ferramentas como Lighthouse para relatórios.
+
+---
+
+## Implementar integração com calendários
+- **Dificuldade:** 34  
+- **Descrição:** Permitir que os usuários adicionem promoções ou listas de compras como lembretes em seus calendários (Google Calendar, Outlook).  
+- **Dependências:** Integração com APIs de calendário (como Google Calendar API).
+
+---
+
+## Adicionar suporte para login biométrico
+- **Dificuldade:** 34  
+- **Descrição:** Implementar login utilizando biometria (impressão digital ou reconhecimento facial) nos dispositivos que suportam.  
 - **Dependências:** WebAuthn API para autenticação baseada em biometria.
 
-### 32. Criar sistema de múltiplos perfis
-- **Descrição:** Permitir que uma única conta tenha múltiplos perfis, como "Pessoal", "Empresa" ou "Família", com listas separadas para cada perfil.
-- **Dependências:** Firebase Firestore para organização de perfis e atualização no front-end.
+---
 
-### 33. Adicionar suporte a exportação automática para Google Sheets
-- **Descrição:** Permitir que os usuários exportem suas listas diretamente para o Google Sheets.
-- **Dependências:** Google Sheets API e ajustes no front-end para a integração.
+## Implementar sugestão automática de categorias
+- **Dificuldade:** 21  
+- **Descrição:** Ao criar uma lista ou buscar produtos, sugerir categorias automaticamente com base no texto inserido.  
+- **Dependências:** Algoritmos simples de categorização no front-end e dados armazenados no Firestore.
 
-### 34. Implementar comparador visual de rotas para mercados
-- **Descrição:** Criar um mapa interativo que exiba rotas para mercados próximos, destacando a distância e tempo estimado de deslocamento.
+---
+
+## Criar sistema de ranking para mercados
+- **Dificuldade:** 34  
+- **Descrição:** Adicionar uma funcionalidade onde os usuários podem visualizar um ranking dos mercados com base em avaliações, proximidade e promoções.  
+- **Dependências:** Firebase Firestore para armazenar avaliações e lógica no front-end para calcular o ranking.
+
+---
+
+## Adicionar integração com APIs de preços em tempo real
+- **Dificuldade:** 55  
+- **Descrição:** Implementar uma funcionalidade que atualize os preços dos produtos em tempo real, diretamente da API de fornecedores ou mercados parceiros.  
+- **Dependências:** Configuração de integrações com APIs externas e ajustes na sincronização com Firestore.
+
+---
+
+## Implementar gamificação para engajamento
+- **Dificuldade:** 34  
+- **Descrição:** Criar um sistema de gamificação que recompensa usuários com pontos ou distintivos por usar o aplicativo, completar listas ou avaliar mercados.  
+- **Dependências:** Lógica adicional no front-end para registrar ações e armazenamento no Firestore.
+
+---
+
+## Adicionar suporte para múltiplas listas simultâneas
+- **Dificuldade:** 21  
+- **Descrição:** Permitir que os usuários trabalhem com várias listas abertas ao mesmo tempo, facilitando o planejamento de compras em diferentes mercados.  
+- **Dependências:** Ajustes no estado global (Redux ou Context API) para gerenciar múltiplas listas.
+
+---
+
+## Melhorar SEO para busca de promoções
+- **Dificuldade:** 13  
+- **Descrição:** Otimizar o SEO para que promoções e informações de mercados sejam indexadas nos motores de busca.  
+- **Dependências:** Configuração de `react-helmet` ou `next/head` para gerenciar metadados.
+
+---
+
+## Adicionar suporte para comandos de voz
+- **Dificuldade:** 34  
+- **Descrição:** Permitir que os usuários usem comandos de voz para criar listas, buscar promoções ou navegar no aplicativo.  
+- **Dependências:** Web Speech API para captura e processamento de comandos de voz.
+
+---
+
+## Implementar personalização baseada em IA
+- **Dificuldade:** 55  
+- **Descrição:** Utilizar algoritmos de machine learning para sugerir promoções, categorias e listas personalizadas com base no comportamento do usuário.  
+- **Dependências:** Integração com Firebase ML ou bibliotecas como TensorFlow.js no front-end.
+
+---
+
+## Implementar comparador visual de rotas para mercados
+- **Dificuldade:** 34  
+- **Descrição:** Criar um mapa interativo que exiba rotas para mercados próximos, destacando a distância e tempo estimado de deslocamento.  
 - **Dependências:** Google Maps API ou Leaflet.js para visualização e cálculo de rotas.
 
-### 35. Adicionar modo "economia máxima"
-- **Descrição:** Criar uma funcionalidade que recomenda a melhor combinação de mercados para economizar ao máximo em uma lista de compras.
-- **Dependências:** Algoritmos de otimização para cálculo de economia e ajuste na interface.
+---
 
-### 36. Implementar sistema de cashback personalizado
-- **Descrição:** Criar um sistema de cashback onde os usuários possam escolher como utilizar os créditos acumulados, como descontos em compras futuras ou doações para causas sociais.
-- **Dependências:** Firebase Firestore para armazenar o saldo de cashback e lógica no front-end para as opções de uso.
+## Adicionar suporte a QR Code para compartilhamento de listas
+- **Dificuldade:** 21  
+- **Descrição:** Gerar QR Codes para listas de compras, permitindo que os usuários compartilhem suas listas rapidamente.  
+- **Dependências:** Biblioteca como `qrcode.react` para geração de QR Codes.
 
-### 37. Criar sistema de notificações de economia por região
-- **Descrição:** Implementar notificações que alertem os usuários sobre promoções específicas na região onde estão, baseando-se na geolocalização.
-- **Dependências:** Geolocation API e Firebase Cloud Messaging para envio de notificações.
+---
 
-### 38. Desenvolver integração com assistentes virtuais
-- **Descrição:** Permitir que os usuários interajam com o aplicativo por meio de assistentes virtuais, como Alexa ou Google Assistant, para adicionar produtos às listas ou verificar promoções.
-- **Dependências:** Configuração de APIs de assistentes virtuais e ajuste no back-end para receber comandos.
+## Adicionar modo "economia máxima"
+- **Dificuldade:** 34  
+- **Descrição:** Implementar um recurso que sugira a combinação ideal de mercados para economizar o máximo possível com base na lista do usuário.  
+- **Dependências:** Lógica avançada no front-end e ajustes no Firestore para otimização de consultas.
 
-### 39. Implementar assinatura premium para recursos avançados
-- **Descrição:** Criar um sistema de assinatura premium que desbloqueie funcionalidades avançadas, como filtros de promoções exclusivos ou relatórios detalhados de economia.
-- **Dependências:** Configuração de pagamentos recorrentes com Stripe ou PayPal e controle de acesso baseado em planos no Firebase Firestore.
+---
 
-### 40. Criar sistema de realidade aumentada para promoções
-- **Descrição:** Adicionar uma funcionalidade que permita aos usuários escanear um mercado físico com a câmera do celular para visualizar promoções destacadas em realidade aumentada.
-- **Dependências:** Uso de bibliotecas como AR.js ou WebXR e integração com promoções armazenadas no Firestore.
+## Criar sistema de feedback de interface
+- **Dificuldade:** 21  
+- **Descrição:** Permitir que os usuários deem feedback sobre a interface diretamente pelo aplicativo, sugerindo melhorias.  
+- **Dependências:** Firebase Firestore para armazenar feedbacks e ajuste na UI para formulário de envio.
 
+---
+
+## Implementar suporte a múltiplos perfis
+- **Dificuldade:** 34  
+- **Descrição:** Permitir que uma única conta tenha múltiplos perfis, como "Pessoal", "Empresa" ou "Família", com listas separadas para cada perfil.  
+- **Dependências:** Firebase Firestore para organização de perfis e atualização no front-end.
+
+---
+
+## Adicionar integração com APIs de clima
+- **Dificuldade:** 13  
+- **Descrição:** Exibir informações meteorológicas para ajudar os usuários a planejar suas compras em dias mais convenientes.  
+- **Dependências:** Integração com APIs de clima, como OpenWeatherMap.
+
+---
+
+## Criar funcionalidade de notificações locais
+- **Dificuldade:** 21  
+- **Descrição:** Adicionar suporte para notificações locais no navegador sobre promoções ou listas salvas.  
+- **Dependências:** Notification API e ajuste no PWA.
+
+---
+
+## Implementar sistema de cashback
+- **Dificuldade:** 34  
+- **Descrição:** Criar um sistema de cashback, permitindo que os usuários acumulem créditos ao usar o aplicativo.  
+- **Dependências:** Firebase Firestore para gerenciamento de créditos e lógica no front-end.
+
+---
+
+## Adicionar suporte a exportação automática para Google Sheets
+- **Dificuldade:** 34  
+- **Descrição:** Permitir que os usuários exportem suas listas diretamente para o Google Sheets.  
+- **Dependências:** Google Sheets API e ajustes no front-end para a integração.
+
+---
+
+## Adicionar rastreamento de métricas no PWA
+- **Dificuldade:** 13  
+- **Descrição:** Implementar um sistema para monitorar como os usuários interagem com o PWA, identificando áreas de melhoria.  
+- **Dependências:** Firebase Analytics ou ferramentas como Google Analytics.
 
   Essa versão ampliada do README inclui detalhes cruciais sobre a arquitetura de software, fluxos de dados, requisitos funcionais e não funcionais e documentação adicional,     proporcionando uma visão clara tanto para desenvolvedores quanto para outros stakeholders envolvidos no projeto.
