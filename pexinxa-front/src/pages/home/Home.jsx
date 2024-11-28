@@ -1,44 +1,36 @@
-import { Navbar } from '../../components/NavBar.jsx'
-import { Footer } from '../../components/Footer.jsx'
+import { Navbar } from '../../components/Navbar/NavBar.jsx'
+import { Footer } from '../../components/Footer/Footer.jsx'
+import { Header }  from "../../components/Header/Header.jsx";
+import { StepsSection } from "../../components/HomeSteps/StepsSection.jsx";
+import { BannerCarousel } from "../../components/Carousel/BannerCarousel.jsx";
+
+const backgroundImage = "../../../public/background.png";
 
 export const Home = () => {
-  
-
   return (
-    <div className="flex flex-col min-h-screen">
+    <div
+    className="flex flex-col min-h-screen absolute w-full"
+    style={{
+      backgroundImage: `url(${backgroundImage})`,
+      backgroundSize: "108%",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
+    }}
+    >
       <Navbar />
-      <main className="flex-grow bg-white">
-        <div className="container mx-auto p-4">
-          <div className="relative bg-white rounded-lg shadow-lg p-6 mb-8">
-            <div className="max-w-2xl">
-              <h1 className="text-4xl font-bold text-orange-500 mb-2">ESQUEÇA FOLHETOS DE MERCADO!</h1>
-              <p className="text-xl text-orange-400">compare preços sem sair de casa!</p>
-            </div>
-            <div className="mt-4">
-              <div className="bg-orange-400 text-white p-4 rounded-lg inline-flex items-center">
-                <span className="text-3xl font-bold mr-2">30% OFF</span>
-                <div>
-                  <p className="font-semibold">Produtos de limpeza</p>
-                  <p>com aquele desconto!</p>
-                </div>
-                {/* <Link href="/produtos" className="ml-4 bg-white text-orange-500 px-4 py-2 rounded-full font-bold">
-                  Confira
-                </Link> */}
-              </div>
-            </div>
-            {/* <Image
-              src="/placeholder.svg"
-              alt="Fruits and vegetables"
-              width={200}
-              height={200}
-              className="absolute right-0 bottom-0"
-            /> */}
-          </div>
+      <div>
+        <Header />
+        <div className="max-w-6xl mx-auto mt-10 rounded-full">
+          <BannerCarousel />
         </div>
-      </main>
+        <h1 className="text-center text-orange-500 text-4xl font-bold mt-12 font-montserrat">
+          Como começar a economizar?
+        </h1>
+        <StepsSection />
+      </div>
       <Footer />
     </div>
-  )
-}
+  );
+};
 
 export default Home;

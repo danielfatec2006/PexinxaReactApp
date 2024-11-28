@@ -1,19 +1,18 @@
 import { useNavigate } from "react-router-dom";
 import { Search, User, ShoppingBag, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Button } from "./ui/Button";
+import { Button } from "../ui/Button";
 import * as DropDownMenu from "@radix-ui/react-dropdown-menu";
-import { useAuth } from "../context/AuthContext";
-import OvalLogo from "../assets/OvalLogo.svg";
+import { useAuth } from "../../context/AuthContext";
+import OvalLogo from "../../assets/OvalLogo.svg";
 
 export const Navbar = () => {
   const navigate = useNavigate();
   const { currentUser, logout } = useAuth();
 
   return (
-    <nav className="bg-sky-500 py-10 shadow-md">
+    <nav className="bg-sky-500 py-16 shadow-md">
       <div className="container mx-auto flex items-center justify-between px-4">
-        {/* Logo e Links de Navegação */}
         <div className="flex items-center space-x-4">
           <img
             src={OvalLogo}
@@ -21,6 +20,7 @@ export const Navbar = () => {
             width={60}
             height={60}
             className="rounded-full"
+            onClick={() => navigate("/")}
           />
           <div className="hidden md:flex space-x-6 text-white text-sm font-medium">
             <Link to="/" className="hover:text-sky-200 transition">
@@ -29,13 +29,12 @@ export const Navbar = () => {
             <Link to="/products" className="hover:text-sky-200 transition">
               Produtos
             </Link>
-            <Link to="/sobre" className="hover:text-sky-200 transition">
+            <Link to="/about" className="hover:text-sky-200 transition">
               Sobre
             </Link>
           </div>
         </div>
 
-        {/* Barra de Busca */}
         <div className="flex-1 mx-4 relative hidden md:block">
           <input
             type="text"
@@ -44,8 +43,6 @@ export const Navbar = () => {
           />
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-orange-400 h-5 w-5" />
         </div>
-
-        {/* Menu de Usuário e Carrinho */}
         <div className="flex items-center space-x-4">
           <div className="flex items-center text-white text-sm space-x-1">
             <MapPin className="h-4 w-4" />
@@ -54,7 +51,6 @@ export const Navbar = () => {
 
           {currentUser ? (
             <>
-              {/* Menu do Usuário (Quando Logado) */}
               <DropDownMenu.Root>
                 <DropDownMenu.Trigger asChild>
                   <User className="text-white h-5 w-5 cursor-pointer" />
@@ -85,7 +81,6 @@ export const Navbar = () => {
                 </DropDownMenu.Content>
               </DropDownMenu.Root>
 
-              {/* Carrinho de Compras */}
               <div className="flex items-center bg-sky-100 px-4 py-2 rounded-full text-sky-500 text-sm font-semibold space-x-2">
                 <ShoppingBag className="h-6 w-6 text-sky-500" />
                 <div className="flex flex-col items-start">
@@ -96,7 +91,6 @@ export const Navbar = () => {
             </>
           ) : (
             <>
-              {/* Botões de Login e Registro (Quando Deslogado) */}
               <Button
                 variant="ghost"
                 className="text-white text-sm"
@@ -105,8 +99,8 @@ export const Navbar = () => {
                 Criar conta
               </Button>
               <Button
-                variant="ghost"
-                className="text-white text-sm"
+                variant="solid"
+                className="text-white text-sm bg-orange-500"
                 onClick={() => navigate("/login")}
               >
                 Login
