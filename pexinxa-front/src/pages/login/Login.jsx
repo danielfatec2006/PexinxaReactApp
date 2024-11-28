@@ -36,8 +36,8 @@ export const LoginForm = () => {
     } 
   };
 
-  const backgroundImage = "../../../public/background.png";
-  const ovalLogo = "../../../public/OvalLogo.svg";
+  const backgroundImage = "/background.png";
+  const ovalLogo = "/OvalLogo.svg";
 
   return (
     <div className="flex h-screen items-center justify-center"

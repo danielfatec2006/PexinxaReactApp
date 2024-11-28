@@ -1,8 +1,6 @@
-const search = "../../../public/search.png";
-const porcent = "../../../public/porcent.png";
-const bag = "../../../public/bag.png";
-
-
+const search = "/search.png";
+const porcent = "/porcent.png";
+const bag = "/bag.png";
 
 export const StepsSection = () => {
   const steps = [
