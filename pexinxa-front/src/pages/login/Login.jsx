@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuthentication } from '../../hooks/useAuthentication'; 
 import { FaArrowLeft } from 'react-icons/fa';
-import OvalLogo from '../../assets/OvalLogo.svg';
 
 export const LoginForm = () => {
   const [email, setEmail] = useState('');
@@ -37,10 +36,13 @@ export const LoginForm = () => {
     } 
   };
 
+  const backgroundImage = "../../../public/background.png";
+  const ovalLogo = "../../../public/OvalLogo.svg";
+
   return (
     <div className="flex h-screen items-center justify-center"
     style={{
-      backgroundImage: "url(../../../public/background.png)",
+      backgroundImage: `url(${backgroundImage})`,
       backgroundSize: "100%",
       backgroundPosition: "top",
       backgroundRepeat: "no-repeat",
@@ -53,11 +55,8 @@ export const LoginForm = () => {
         <FaArrowLeft size={24} />
       </button>
         <div className="mb-8 text-center">
-          <img src={OvalLogo} alt="Logo" width={64} height={64} className="mx-auto" />
+          <img src={ovalLogo} alt="Logo" width={64} height={64} className="mx-auto" />
           <h2 className="mt-4 text-2xl font-bold text-orange-500">Acesse sua Conta</h2>
-
-            
-
         </div>
         <button
           onClick={handleGoogleSignIn}
