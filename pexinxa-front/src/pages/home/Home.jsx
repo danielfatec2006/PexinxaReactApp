@@ -4,7 +4,7 @@ import { Header }  from "../../components/Header/Header.jsx";
 import { StepsSection } from "../../components/HomeSteps/StepsSection.jsx";
 import { BannerCarousel } from "../../components/Carousel/BannerCarousel.jsx";
 
-const backgroundImage = "../../../public/background.png";
+const backgroundImage = "/background.png";
 
 export const Home = () => {
   return (

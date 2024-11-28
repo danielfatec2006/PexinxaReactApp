@@ -1,5 +1,5 @@
 import { Instagram, Linkedin, Github } from "lucide-react";
-import logoFooter from "../../assets/PexinxaFooter.png";
+const logoFooter = "/PexinxaFooter.png";
 
 export const Footer = () => {
   return (

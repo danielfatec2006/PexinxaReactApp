@@ -1,8 +1,8 @@
 import Slider from "react-slick";
-const cd1 = "../../../public/carousel-images/c1d.svg";
-const cd2 = "../../../public/carousel-images/c2d.svg";
-const cd3 = "../../../public/carousel-images/c3d.svg";
-const cd4 = "../../../public/carousel-images/c4d.png";
+const cd1 = "/carousel-images/c1d.svg";
+const cd2 = "/carousel-images/c2d.svg";
+const cd3 = "/carousel-images/c3d.svg";
+const cd4 = "/public/carousel-images/c4d.png";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 

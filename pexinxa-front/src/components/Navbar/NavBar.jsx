@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Button } from "../ui/Button";
 import * as DropDownMenu from "@radix-ui/react-dropdown-menu";
 import { useAuth } from "../../context/AuthContext";
-import OvalLogo from "../../assets/OvalLogo.svg";
+const OvalLogo = "/OvalLogo.svg";
 
 export const Navbar = () => {
   const navigate = useNavigate();

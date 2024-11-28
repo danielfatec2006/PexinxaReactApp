@@ -1,4 +1,4 @@
-import caption from "../../assets/caption.png";
+const caption = "/caption.png";
 
 export const Header = () => {
   return (
