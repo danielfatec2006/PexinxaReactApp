@@ -1,6 +1,6 @@
 class LoginPage{
     navigate(){
-        cy.visit('https://pexinxa-database.web.app/login');
+        cy.visit('https://pexinxa-database.firebaseapp.com/login');
     }
 
     fillEmail(email){
