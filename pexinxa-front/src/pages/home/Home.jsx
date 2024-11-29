@@ -9,7 +9,7 @@ const backgroundImage = "/background.png";
 export const Home = () => {
   return (
     <div
-    className="flex flex-col min-h-screen absolute w-full "
+    className="flex flex-col h-screen w-full "
     style={{
       backgroundImage: `url(${backgroundImage})`,
       backgroundSize: "100%",
