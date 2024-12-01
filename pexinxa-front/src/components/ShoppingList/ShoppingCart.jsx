@@ -44,10 +44,10 @@ export const ShoppingCart = ({ isOpen, onClose }) => {
             <div className="flex flex-col justify-between flex-1">
               <div>
                 <h2 className="text-sm text-gray-500 font-semibold mb-2">
-                  Seu pedido em
+                  Sua lista em
                 </h2>
                 <p className="font-bold mb-6 text-gray-800 text-xl">
-                  Mercado Amarelinha
+                  Amarelão Supermercados
                 </p>
                 {items.map((item) => (
                   <div
