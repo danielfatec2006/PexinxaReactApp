@@ -1,67 +1,17 @@
-import { useState } from "react";
-import { Heart, X, ListPlus, SlidersHorizontal } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Heart, X, ListPlus, SlidersHorizontal, ArrowUp } from "lucide-react";
 import { Navbar } from "../../components/Navbar/NavBar";
 import { Footer } from "../../components/Footer/Footer";
 import BannerCarousel from "../../components/Carousel/BannerCarousel";
 import { useAuth } from "../../context/AuthContext";
 import { useCart } from "../../context/CartContext";
 import { useNavigate } from "react-router-dom";
-
-const acucar = "/products/acucar.png";
-const oleo = "/products/oleo.png";
-const camil = "/products/camil.png";
-const kiarroz = "/products/kiarroz.png";
-const amarelao = "/markets/amarelao.png";
-const assala = "/markets/assala.png";
-const barraca = "/markets/barraca.png";
-const sonia = "/markets/sonia.png";
-
-const products = [
-  {
-    id: 1,
-    name: "Óleo De Girassol Soya Garrafa 900ml",
-    price: 9.5,
-    market: {
-      name: "Sonia Supermercado",
-      logo: sonia,
-    },
-    image: oleo,
-  },
-  {
-    id: 2,
-    name: "Arroz Branco Camil Pacote 5kg",
-    price: 27.99,
-    market: {
-      name: "Barraca Supermercado",
-      logo: barraca,
-    },
-    image: camil,
-  },
-  {
-    id: 3,
-    name: "Arroz Branco Kiarroz Pacote 5kg",
-    price: 35.0,
-    market: {
-      name: "Amarelão Supermercado",
-      logo: amarelao,
-    },
-    image: kiarroz,
-  },
-  {
-    id: 4,
-    name: "Açúcar Refinado Especial União 1kg",
-    price: 5.9,
-    market: {
-      name: "Assalá Atacadista",
-      logo: assala,
-    },
-    image: acucar,
-  },
-];
+import products  from "../../hooks/useProductData" 
 
 export const Product = () => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [showLoginModal, setShowLoginModal] = useState(false);
+  const [showScrollToTop, setShowScrollToTop] = useState(false);
   const { currentUser } = useAuth();
   const { addItem } = useCart();
   const navigate = useNavigate();
@@ -73,6 +23,23 @@ export const Product = () => {
     }
     addItem(product);
   };
+  const handleScroll = () => {
+    // Mostra o botão apenas quando o usuário rolar 300px ou mais
+    setShowScrollToTop(window.scrollY > 300);
+  };
+
+  const scrollToTop = () => {
+    // Rola suavemente para o topo da página
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-100">
@@ -132,17 +99,108 @@ export const Product = () => {
         </div>
         {isFilterOpen && (
           <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-end">
-            <div className="bg-white w-80 p-5 h-full overflow-y-auto shadow-lg rounded-l-xl">
-              <div className="flex justify-between items-center mb-5">
+            <div className="bg-white w-80 p-5 h-full overflow-y-auto shadow-lg rounded-l-xl border border-gray-300">
+              <div className="flex justify-between items-center mb-4">
                 <h2 className="text-lg font-bold text-gray-800">Filtros</h2>
                 <button
                   onClick={() => setIsFilterOpen(false)}
-                  className="text-gray-500 hover:text-gray-700"
+                  className="text-gray-500 hover:text-gray-700 focus:outline-none"
                 >
                   <X className="w-5 h-5" />
                 </button>
               </div>
-              <button className="w-full bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-lg font-bold text-sm">
+              <div className="flex justify-between items-center mb-6">
+                <button
+                  // onClick={handleClearFilters} // Lógica para limpar os filtros
+                  className="text-sm text-blue-600 hover:underline focus:outline-none"
+                >
+                  Limpar tudo
+                </button>
+              </div>
+              <div className="mb-5">
+                <h3 className="font-semibold text-gray-700 mb-2">Categoria</h3>
+                <div className="space-y-2">
+                  <label className="flex items-center text-gray-600">
+                    <input
+                      type="checkbox"
+                      className="mr-2 h-4 w-4 border-gray-300 rounded focus:ring-orange-500"
+                    />
+                    Doces
+                  </label>
+                  <label className="flex items-center text-gray-600">
+                    <input
+                      type="checkbox"
+                      className="mr-2 h-4 w-4 border-gray-300 rounded focus:ring-orange-500"
+                    />
+                    Bebidas
+                  </label>
+                </div>
+              </div>
+              <div className="mb-5">
+                <h3 className="font-semibold text-gray-700 mb-2">
+                  Departamento
+                </h3>
+                <div className="space-y-2">
+                  <label className="flex items-center text-gray-600">
+                    <input
+                      type="checkbox"
+                      className="mr-2 h-4 w-4 border-gray-300 rounded focus:ring-orange-500"
+                    />
+                    Mercearia
+                  </label>
+                  <label className="flex items-center text-gray-600">
+                    <input
+                      type="checkbox"
+                      className="mr-2 h-4 w-4 border-gray-300 rounded focus:ring-orange-500"
+                    />
+                    Frios
+                  </label>
+                </div>
+              </div>
+              <div className="mb-5">
+                <h3 className="font-semibold text-gray-700 mb-2">Mercado</h3>
+                <div className="space-y-2">
+                  <label className="flex items-center text-gray-600">
+                    <input
+                      type="checkbox"
+                      className="mr-2 h-4 w-4 border-gray-300 rounded focus:ring-orange-500"
+                    />
+                    Barraca Atacado
+                  </label>
+                  <label className="flex items-center text-gray-600">
+                    <input
+                      type="checkbox"
+                      className="mr-2 h-4 w-4 border-gray-300 rounded focus:ring-orange-500"
+                    />
+                    Amarelinha
+                  </label>
+                </div>
+              </div>
+              <div className="mb-6">
+                <h3 className="font-semibold text-gray-700 mb-2">
+                  Faixa de preço
+                </h3>
+                <div>
+                  <div className="flex justify-between text-gray-600 text-sm mb-2">
+                    <span>R$ 2,00</span>
+                    <span>R$ 100,00</span>
+                  </div>
+                  <input
+                    type="range"
+                    min="2"
+                    max="100"
+                    className="w-full cursor-pointer accent-orange-500"
+                    // onChange={handlePriceRangeChange} // Lógica para alterar a faixa de preço
+                  />
+                  <button
+                    className="mt-2 text-sm text-blue-600 hover:underline focus:outline-none"
+                    // onClick={handleClearPriceRange} // Lógica para limpar a faixa de preço
+                  >
+                    Limpar 
+                  </button>
+                </div>
+              </div>
+              <button className="w-full bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-lg font-bold text-sm shadow-md border-2 border-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-400">
                 Filtrar
               </button>
             </div>
@@ -157,7 +215,9 @@ export const Product = () => {
               >
                 <X className="w-6 h-6" />
               </button>
-              <h2 className="text-lg font-bold text-gray-800 font-montserrat">Você parece não estar logado!</h2>
+              <h2 className="text-lg font-bold text-gray-800 font-montserrat">
+                Você parece não estar logado!
+              </h2>
               <p className="mt-4 text-sm text-gray-600 font-montserrat font-medium">
                 Entre em sua conta ou cadastre-se para começar a economizar!
               </p>
@@ -179,6 +239,15 @@ export const Product = () => {
           </div>
         )}
       </main>
+      {/* Botão de Voltar ao Topo */}
+      {showScrollToTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-4 right-4 bg-orange-500 text-white p-3 rounded-full shadow-lg hover:bg-orange-600 transition-all"
+        >
+          <ArrowUp className="w-6 h-6" />
+        </button>
+      )}
       <Footer />
     </div>
   );

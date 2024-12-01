@@ -29,7 +29,7 @@ export const Navbar = () => {
             className="rounded-full cursor-pointer"
             onClick={() => navigate("/")}
           />
-          <div className="hidden md:flex space-x-6 text-white text-sm font-medium">
+          <div className="hidden md:flex space-x-6 text-white text-md font-medium">
             <Link
               to="/"
               className={`hover:text-sky-200 transition ${
@@ -67,7 +67,7 @@ export const Navbar = () => {
         </div>
 
         <div className="flex items-center space-x-4">
-          <div className="flex items-center text-white text-sm space-x-1">
+          <div className="flex items-center text-white text-md space-x-1">
             <MapPin className="h-4 w-4" />
             <span>Matão - SP</span>
           </div>
@@ -93,7 +93,7 @@ export const Navbar = () => {
                     className="cursor-pointer text-gray-600 hover:bg-gray-100 p-2 rounded-md"
                     onSelect={() => console.log("Pedidos")}
                   >
-                    Pedidos
+                    Meus Dados
                   </DropDownMenu.Item>
                   <DropDownMenu.Item
                     className="cursor-pointer text-gray-600 hover:bg-gray-100 p-2 rounded-md"
@@ -134,14 +134,14 @@ export const Navbar = () => {
             <>
               <Button
                 variant="text"
-                className="text-white text-sm font-medium underline hover: transition hover:text-sky-200"
+                className="text-white text-md font-medium underline hover: transition hover:text-sky-200"
                 onClick={() => navigate("/register")}
               >
                 Criar conta
               </Button>
               <Button
                 variant="contained"
-                className="text-white text-sm font-medium bg-orange-500 hover: transition hover:bg-orange-400"
+                className="text-white text-md font-medium bg-orange-500 hover: transition hover:bg-orange-400"
                 onClick={() => navigate("/login")}
               >
                 Login
