@@ -12,7 +12,7 @@ const OvalLogo = "/OvalLogo.svg";
 
 export const Navbar = () => {
   const navigate = useNavigate();
-  const location = useLocation(); // Hook para pegar a localização atual
+  const location = useLocation(); 
   const { currentUser, logout } = useAuth();
   const { subtotal, totalItems } = useCart();
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -78,7 +78,7 @@ export const Navbar = () => {
                 <DropDownMenu.Trigger asChild>
                   <User className="text-white h-5 w-5 cursor-pointer" />
                 </DropDownMenu.Trigger>
-                <DropDownMenu.Content className="bg-white p-3 rounded-lg shadow-lg">
+                <DropDownMenu.Content className="bg-white p-3 rounded-lg shadow-lg z-50">
                   <DropDownMenu.Label className="text-gray-700">
                     Olá, {currentUser?.displayName || "Visitante"}
                   </DropDownMenu.Label>
@@ -87,13 +87,13 @@ export const Navbar = () => {
                     className="cursor-pointer text-gray-600 hover:bg-gray-100 p-2 rounded-md"
                     onSelect={() => console.log("Perfil")}
                   >
-                    Perfil
+                    Meus Dados
                   </DropDownMenu.Item>
                   <DropDownMenu.Item
                     className="cursor-pointer text-gray-600 hover:bg-gray-100 p-2 rounded-md"
                     onSelect={() => console.log("Pedidos")}
                   >
-                    Meus Dados
+                    Segurança
                   </DropDownMenu.Item>
                   <DropDownMenu.Item
                     className="cursor-pointer text-gray-600 hover:bg-gray-100 p-2 rounded-md"

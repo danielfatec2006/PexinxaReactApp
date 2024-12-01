@@ -6,6 +6,7 @@ import { BannerCarousel } from "../../components/Carousel/BannerCarousel.jsx";
 import { useEffect, useState } from "react";
 import { ArrowUp } from "lucide-react";
 
+
 const backgroundImage = "/background.png";
 
 export const Home = () => {

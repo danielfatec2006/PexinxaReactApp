@@ -7,6 +7,7 @@ import { useAuth } from "../../context/AuthContext";
 import { useCart } from "../../context/CartContext";
 import { useNavigate } from "react-router-dom";
 import products  from "../../hooks/useProductData" 
+import MarketMap from "../../components/MarketMap/MarketMap.jsx";
 
 export const Product = () => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
@@ -24,12 +25,10 @@ export const Product = () => {
     addItem(product);
   };
   const handleScroll = () => {
-    // Mostra o botão apenas quando o usuário rolar 300px ou mais
     setShowScrollToTop(window.scrollY > 300);
   };
 
   const scrollToTop = () => {
-    // Rola suavemente para o topo da página
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
@@ -239,7 +238,6 @@ export const Product = () => {
           </div>
         )}
       </main>
-      {/* Botão de Voltar ao Topo */}
       {showScrollToTop && (
         <button
           onClick={scrollToTop}
@@ -249,6 +247,23 @@ export const Product = () => {
         </button>
       )}
       <Footer />
+      <section className="w-full bg-sky-50 py-12 px-4">
+        <div className="container mx-auto">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold text-gray-800 font-montserrat">
+              Não sabe qual mercado ir?
+            </h2>
+            <p className="text-xl text-gray-600 mt-2 font-montserrat">
+              Veja o mais próximo de você!
+            </p>
+          </div>
+          <div className="rounded-lg overflow-hidden shadow-lg border border-gray-200">
+            <div className="h-[500px] w-full">
+              <MarketMap />
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
