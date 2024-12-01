@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom"; // Adicionando useLocation
 import { Search, User, ShoppingBag, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "../ui/Button";
@@ -12,6 +12,7 @@ const OvalLogo = "/OvalLogo.svg";
 
 export const Navbar = () => {
   const navigate = useNavigate();
+  const location = useLocation(); // Hook para pegar a localização atual
   const { currentUser, logout } = useAuth();
   const { subtotal, totalItems } = useCart();
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -29,13 +30,28 @@ export const Navbar = () => {
             onClick={() => navigate("/")}
           />
           <div className="hidden md:flex space-x-6 text-white text-sm font-medium">
-            <Link to="/" className="hover:text-sky-200 transition">
+            <Link
+              to="/"
+              className={`hover:text-sky-200 transition ${
+                location.pathname === "/" ? "underline" : ""
+              }`}
+            >
               Início
             </Link>
-            <Link to="/products" className="hover:text-sky-200 transition">
+            <Link
+              to="/products"
+              className={`hover:text-sky-200 transition ${
+                location.pathname === "/products" ? "underline" : ""
+              }`}
+            >
               Produtos
             </Link>
-            <Link to="/about" className="hover:text-sky-200 transition">
+            <Link
+              to="/about"
+              className={`hover:text-sky-200 transition ${
+                location.pathname === "/about" ? "underline" : ""
+              }`}
+            >
               Sobre
             </Link>
           </div>
@@ -58,7 +74,6 @@ export const Navbar = () => {
 
           {currentUser ? (
             <>
-              {/* Menu de perfil */}
               <DropDownMenu.Root>
                 <DropDownMenu.Trigger asChild>
                   <User className="text-white h-5 w-5 cursor-pointer" />
@@ -96,7 +111,7 @@ export const Navbar = () => {
                     : "bg-sky-100 text-sky-500"
                 }`}
                 onClick={() => setIsCartOpen(true)}
-                >
+              >
                 <ShoppingBag
                   className={`h-6 w-6 ${
                     totalItems > 0 ? "text-white" : "text-sky-500"
@@ -118,15 +133,15 @@ export const Navbar = () => {
           ) : (
             <>
               <Button
-                variant="ghost"
-                className="text-white text-sm"
+                variant="text"
+                className="text-white text-sm font-medium underline hover: transition hover:text-sky-200"
                 onClick={() => navigate("/register")}
               >
                 Criar conta
               </Button>
               <Button
-                variant="solid"
-                className="text-white text-sm bg-orange-500"
+                variant="contained"
+                className="text-white text-sm font-medium bg-orange-500 hover: transition hover:bg-orange-400"
                 onClick={() => navigate("/login")}
               >
                 Login
