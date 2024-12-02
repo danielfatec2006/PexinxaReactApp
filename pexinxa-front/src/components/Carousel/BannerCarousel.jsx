@@ -29,7 +29,7 @@ export const BannerCarousel = () => {
     <Slider {...settings} className="rounded-2xl overflow-hidden">
     {banners.map((banner, index) => (
       <div key={index} className="w-full h-45 flex items-center justify-center">
-        <img src={banner.src} alt={banner.alt} className="w-full h-full object-cover" />
+        <img src={banner.src} alt={banner.alt} className="w-full h-full object-cover" loading="lazy"/>
       </div>
     ))}
   </Slider>

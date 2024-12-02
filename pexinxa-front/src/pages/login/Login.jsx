@@ -57,7 +57,7 @@ export const LoginForm = () => {
         <FaArrowLeft size={24} />
       </button>
         <div className="mb-8 text-center">
-          <img src={ovalLogo} alt="Logo" width={64} height={64} className="mx-auto" />
+          <img src={ovalLogo} alt="Logo" width={64} height={64} className="mx-auto" loading="lazy"/>
           <h2 className="mt-4 text-2xl font-bold text-orange-500">Acesse sua Conta</h2>
         </div>
         <button

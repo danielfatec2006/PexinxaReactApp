@@ -83,7 +83,7 @@ export const Register = () => {
           <FaArrowLeft size={24} />
         </button>
         <div className="mb-8 text-center">
-          <img src="/OvalLogo.svg" alt="Logo" width={64} height={64} className="mx-auto" />
+          <img src="/OvalLogo.svg" alt="Logo" width={64} height={64} className="mx-auto" loading="lazy"/>
           <h2 className="mt-4 text-2xl font-bold text-orange-500">Crie sua conta</h2>
         </div>
 
