@@ -10,6 +10,7 @@ import { CartProvider } from './context/CartContext';
 import GoogleMaps from './components/Map/GoogleMaps';
 import { ThemeProvider, useTheme } from '../src/context/ThemeContext';
 import { GlobalStyle, Button } from '../src/styles/Theme';
+import ShoppingPlanner from './components/ShoppingPlanner/ShoppingPlanner';
 
 function App() {
   const { isDark, toggleTheme } = useTheme();
@@ -27,6 +28,7 @@ function App() {
           </header>
         <main className="flex-grow">
           <Routes>
+            <Route path="/shopping/panner" element={<ShoppingPlanner />} />
             <Route path="/googlemaps/market/localization" element={<GoogleMaps />} />
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<Product />} />

@@ -1,0 +1,24 @@
+.weather_panel {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 8px 8px 1px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 300px;
+    margin: 20px auto;
+  }
+
+  .weather_recomendation {
+    border: 1px solid #ccc;
+  }
+  
+  .weather_panel h1 {
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: 700;
+  }
+  
+  .weather_panel p {
+    margin-bottom: 5px;
+    font-size: 16px;
+  }
