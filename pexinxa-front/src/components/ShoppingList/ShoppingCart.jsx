@@ -1,11 +1,38 @@
 import { useCart } from "../../context/CartContext";
 import PropTypes from "prop-types";
+import jsPDF from "jspdf";
+import "jspdf-autotable"; 
+
 
 const EmptyCartImage = "/Sacolinha.png";
 
 export const ShoppingCart = ({ isOpen, onClose }) => {
   const { items, addItem, removeItem, subtotal } = useCart();
   const comparison = 20.0;
+
+  const exportToPDF = () => {
+    const doc = new jsPDF();
+
+    doc.text("Sua Lista de Compras", 10, 10);
+
+    const tableData = items.map((item, index) => [
+      index + 1,
+      item.name,
+      item.quantity,
+      `R$ ${item.price.toFixed(2)}`,
+    ]);
+
+    doc.autoTable({
+      head: [["#", "Nome", "Quantidade", "Preço"]],
+      body: tableData,
+    });
+
+    doc.text(`Subtotal: R$ ${subtotal.toFixed(2)}`, 10, doc.lastAutoTable.finalY + 10);
+    doc.text(`Comparação: +R$ ${comparison.toFixed(2)}`, 10, doc.lastAutoTable.finalY + 20);
+    doc.text(`Total: R$ ${(subtotal + comparison).toFixed(2)}`, 10, doc.lastAutoTable.finalY + 30);
+
+    doc.save("lista_de_compras.pdf");
+  };
 
   return (
     <>
@@ -36,7 +63,7 @@ export const ShoppingCart = ({ isOpen, onClose }) => {
                 className="w-42 h-auto"
               />
               <p className="text-gray-600 text-xl font-medium">
-                Sua sacola está vazia
+                Sua Lista está vazia
               </p>
               <p className="text-gray-500 text-sm">Adicione itens</p>
             </div>
@@ -97,6 +124,12 @@ export const ShoppingCart = ({ isOpen, onClose }) => {
                     R$ {(subtotal + comparison).toFixed(2)}
                   </span>
                 </div>
+                <button
+                  onClick={exportToPDF}
+                  className="w-full bg-blue-500 text-white py-3 mt-4 rounded-lg hover:bg-blue-600 transition text-sm font-bold"
+                >
+                  Exportar para PDF
+                </button>
                 <button className="w-full bg-orange-500 text-white py-3 mt-4 rounded-lg hover:bg-orange-600 transition text-sm font-bold">
                   Comparar Preços
                 </button>
@@ -113,3 +146,4 @@ ShoppingCart.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
 };
+export default ShoppingCart;
