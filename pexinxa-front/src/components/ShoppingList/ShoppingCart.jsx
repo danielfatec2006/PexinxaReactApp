@@ -3,16 +3,14 @@ import PropTypes from "prop-types";
 import jsPDF from "jspdf";
 import "jspdf-autotable"; 
 
-
 const EmptyCartImage = "/Sacolinha.png";
 
 export const ShoppingCart = ({ isOpen, onClose }) => {
   const { items, addItem, removeItem, subtotal } = useCart();
   const comparison = 20.0;
 
-  const exportToPDF = () => {
+  const generatePDF = () => {
     const doc = new jsPDF();
-
     doc.text("Sua Lista de Compras", 10, 10);
 
     const tableData = items.map((item, index) => [
@@ -31,7 +29,47 @@ export const ShoppingCart = ({ isOpen, onClose }) => {
     doc.text(`Comparação: +R$ ${comparison.toFixed(2)}`, 10, doc.lastAutoTable.finalY + 20);
     doc.text(`Total: R$ ${(subtotal + comparison).toFixed(2)}`, 10, doc.lastAutoTable.finalY + 30);
 
-    doc.save("lista_de_compras.pdf");
+    return doc.output("blob"); // Retorna o arquivo PDF como Blob
+  };
+
+  const exportToPDF = () => {
+    const blob = generatePDF();
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "lista_de_compras.pdf";
+    link.click();
+    URL.revokeObjectURL(url);
+  };
+
+  const shareOnWhatsApp = () => {
+    const blob = generatePDF();
+
+    const fileReader = new FileReader();
+    fileReader.onload = () => {
+      const base64PDF = fileReader.result.split(",")[1]; // Extrai o Base64
+      const pdfLink = `data:application/pdf;base64,${base64PDF}`;
+
+      if (navigator.share) {
+        // Usar Web Share API em dispositivos compatíveis
+        navigator
+          .share({
+            title: "Lista de Compras",
+            text: "Confira minha lista de compras do Amarelão Supermercados!",
+            files: [new File([blob], "lista_de_compras.pdf", { type: "application/pdf" })],
+          })
+          .catch((err) => console.error("Erro ao compartilhar:", err));
+      } else {
+        // Fallback: Gera link para download e orienta usuário
+        window.open(
+          `https://wa.me/?text=${encodeURIComponent(
+            "Confira minha lista de compras do Amarelão Supermercados! Clique no link para baixar o PDF: " +
+              pdfLink
+          )}`
+        );
+      }
+    };
+    fileReader.readAsDataURL(blob);
   };
 
   return (
@@ -130,8 +168,11 @@ export const ShoppingCart = ({ isOpen, onClose }) => {
                 >
                   Exportar para PDF
                 </button>
-                <button className="w-full bg-orange-500 text-white py-3 mt-4 rounded-lg hover:bg-orange-600 transition text-sm font-bold">
-                  Comparar Preços
+                <button
+                  onClick={shareOnWhatsApp}
+                  className="w-full bg-green-500 text-white py-3 mt-4 rounded-lg hover:bg-green-600 transition text-sm font-bold"
+                >
+                  Compartilhar no WhatsApp
                 </button>
               </div>
             </div>
