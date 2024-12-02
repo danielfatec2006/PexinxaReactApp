@@ -1,5 +1,6 @@
 import { Instagram, Linkedin, Github, MapPin, Phone, Mail } from "lucide-react";
 const logoFooter = "/PexinxaFooter.png";
+import MapLeaflet from "../Map/MapLeaflet";
 
 export const Footer = () => {
   return (
@@ -41,6 +42,10 @@ export const Footer = () => {
           </div>
         </div>
       </div>
+      <div style={{ fontSize:"20px", fontWeight:"700",textAlign: "center", marginTop:"80px"}}>
+        Navegue pelo mapa e descubra Mercados e suas Promoções
+      </div>
+      <MapLeaflet/>
     </footer>
   );
 };
