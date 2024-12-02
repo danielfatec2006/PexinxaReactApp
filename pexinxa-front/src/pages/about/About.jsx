@@ -10,7 +10,6 @@ const fatec = "/Fatec.jpg";
 const brainstorm = "/brainstorm.jpg";
 
 export const About = () => {
-
   const [showScrollToTop, setShowScrollToTop] = useState(false);
 
   const handleScroll = () => {
@@ -32,8 +31,8 @@ export const About = () => {
     <main className="min-h-screen bg-white">
       <Navbar />
       <section className="relative bg-sky-50 min-h-[300px] overflow-hidden">
-        <div className="absolute top-0 left-0 w-32 h-32 bg-orange-400 transform -translate-x-8"></div>
-        <div className="container mx-auto px-4 py-12 relative">
+        <div className="absolute top-0 left-0 w-32 h-32 bg-orange-400 transform -translate-x-8 z-10"></div>
+        <div className="container mx-auto px-4 py-12 relative z-20">
           <div className="max-w-2xl mx-auto text-center mt-20">
             <h1 className="text-4xl md:text-5xl font-bold mb-6 font-montserrat">
               Conheça a
@@ -44,9 +43,9 @@ export const About = () => {
               E descubra se você dá match com a gente!
             </p>
           </div>
-          <div className="absolute right-0 top-0 w-96 h-96 bg-blue-500 rounded-full transform translate-x-1/2 -translate-y-1/4"></div>
-          <div className="absolute right-0 bottom-0 w-64 h-64 bg-orange-400 rounded-full transform translate-x-1/3 translate-y-1/4"></div>
         </div>
+        <div className="absolute right-0 top-0 w-96 h-96 bg-blue-500 rounded-full transform translate-x-1/2 -translate-y-1/4 z-10"></div>
+        <div className="absolute right-0 bottom-0 w-64 h-64 bg-orange-400 rounded-full transform translate-x-1/3 translate-y-1/4 z-10"></div>
       </section>
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
